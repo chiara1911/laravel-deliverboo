@@ -1,0 +1,168 @@
+{
+    "pizza": [
+        {
+            "email": "pizzeriamario@example.com",
+            "password": "mario123",
+            "name": "Pizzeria da Mario",
+            "address": "Via del Corso, 145, 00186 Roma RM",
+            "vat": "01234567890",
+            "types": [
+                1,
+                9,
+                16
+            ]
+        }
+    ],
+    "poke": [
+        {
+            "email": "pokeparadise@gmail.com",
+            "password": "paradise56",
+            "name": "Poke Paradise",
+            "address": "Via del Corso, 123, 00186 Roma RM",
+            "vat": "90130239630",
+            "types": [
+                2
+            ]
+        }
+    ],
+    "kebab": [
+        {
+            "email": "kebabcorner@gmail.com",
+            "password": "kebabcorner43",
+            "name": "Kebab Corner",
+            "address": "Via del Babuino, 78, 00187 Roma RM",
+            "vat": "90123456789",
+            "types": [
+                3
+            ]
+        }
+    ],
+    "hamburger": [
+        {
+            "email": "scandalburger@gmail.com",
+            "password": "scandalburger00",
+            "name": "Scandal Burger",
+            "address": "Via del Corso, 89, 00186 Roma RM",
+            "vat": "74789345102",
+            "types": [
+                4,
+                5
+            ]
+        }
+    ],
+    "panini": [
+        {
+            "email": "rollnroll@example.com",
+            "password": "rollnroll2024",
+            "name": "Roll 'n Roll",
+            "address": "Via Cassia, 37, 00179 Roma RM",
+            "vat": "IT01234567890",
+            "types": [
+                5
+            ]
+        }
+    ],
+    "messicana": [
+        {
+            "email": "info@svoltamex.it",
+            "password": "svoltamex",
+            "name": "La Svolta Messicana",
+            "address": "Viale delle Milizie, 16, 00192 Roma RM",
+            "vat": "13865525005",
+            "types": [
+                6
+            ]
+        }
+    ],
+    "giapponese": [
+        {
+            "email": "ramenhouse@gmail.com",
+            "password": "ramenhouse2024",
+            "name": "Ramen House",
+            "address": "Via dei Fori Imperiali 10, 00179 Roma RM",
+            "vat": "IT01234567890",
+            "types": [
+                7,
+                15
+            ]
+        }
+    ],
+    "cinese": [
+        {
+            "email": "ristorantexin@gmail.com",
+            "password": "ristorantexin986",
+            "name": "Ristorante Xin",
+            "address": "Via Vittorio Veneto, 87, 00187 Roma RM",
+            "vat": "77889900112",
+            "types": [
+                8,
+                15
+            ]
+        }
+    ],
+    "italiana": [
+        {
+            "email": "ferroefuoco@gmail.com",
+            "password": "ferrofuoco",
+            "name": "Il Ferro e il Fuoco",
+            "address": "Via Garibaldi 27, 00153 Roma ",
+            "vat": "12115629041",
+            "types": [
+                4,
+                9
+            ]
+        }
+    ],
+    "indiana": [
+        {
+            "email": "delhidarbar@example.com",
+            "password": "darbar456",
+            "name": "Delhi Darbar",
+            "address": "Via XX Settembre, 67, 00187 Roma RM",
+            "vat": "6655443322",
+            "type": [
+                10,
+                15
+            ]
+        }
+    ],
+    "spagnola": [
+        {
+            "email": "laplaza@gmail.com",
+            "password": "plaza582",
+            "name": "La Plaza",
+            "address": "Via del Corso, 89, 00186 Roma RM",
+            "vat": "IT01234567890",
+            "types": [
+                11,
+                16
+            ]
+        }
+    ],
+    "thai": [
+        {
+            "email": "lotusthai@example.com",
+            "password": "lotusthai456",
+            "name": "Lotus Thai",
+            "address": "Via XX Settembre, 67, 00187 Roma RM",
+            "vat": "6655443322",
+            "types": [
+                12,
+                15
+            ]
+        }
+    ],
+    "greca": [
+        {
+            "email": "olympiataverna@gmail.com",
+            "password": "olympia21",
+            "name": "Olympia Taverna",
+            "address": "Via del Corso, 89, 00186 Roma RM",
+            "vat": "IT01234567890",
+            "types": [
+                13,
+                16
+            ]
+        }
+    ]
+}
