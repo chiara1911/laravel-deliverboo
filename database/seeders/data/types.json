@@ -1,50 +1,50 @@
 [
     {
-        "name": "pizza"
+        "name": "Pizza"
     },
     {
-        "name": "poke"
+        "name": "Poke"
     },
     {
-        "name": "kebab"
+        "name": "Kebab"
     },
     {
-        "name": "hamburger"
+        "name": "Hamburger"
     },
     {
-        "name": "panini"
+        "name": "Panini"
     },
     {
-        "name": "messicana"
+        "name": "Messicana"
     },
     {
-        "name": "giapponese"
+        "name": "Giapponese"
     },
     {
-        "name": "cinese"
+        "name": "Cinese"
     },
     {
-        "name": "italiana"
+        "name": "Italiana"
     },
     {
-        "name": "indiana"
+        "name": "Indiana"
     },
     {
-        "name": "spagnola"
+        "name": "Spagnola"
     },
     {
-        "name": "thai"
+        "name": "Thai"
     },
     {
-        "name": "greca"
+        "name": "Greca"
     },
     {
-        "name": "argentina"
+        "name": "Argentina"
     },
     {
-        "name": "asiatica"
+        "name": "Asiatica"
     },
     {
-        "name": "mediterranea"
+        "name": "Mediterranea"
     }
 ]
