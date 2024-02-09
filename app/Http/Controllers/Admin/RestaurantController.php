@@ -1,19 +1,29 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        // $restaurant= Restaurant::all();
+        $currentUserId = Auth::id();
+
+        $restaurant = Restaurant::where('user_id', $currentUserId)->first();
+         return view('home', ['restaurants' => $restaurant]);
+      
     }
 
     /**
@@ -22,6 +32,7 @@ class RestaurantController extends Controller
     public function create()
     {
         //
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -29,7 +40,10 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        //   
+      
+        // $restaurant = Restaurant::create($formData);
+        return to_route('home');
     }
 
     /**
@@ -38,6 +52,9 @@ class RestaurantController extends Controller
     public function show(Restaurant $restaurant)
     {
         //
+        // $restaurantUser = $restaurant->user_id;
+
+        return view ('home', compact('restaurant'));
     }
 
     /**

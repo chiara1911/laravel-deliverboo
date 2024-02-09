@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 use App\Models\Dish;
+use App\Models\Restaurant;
 
 class DishController extends Controller
 {
@@ -18,6 +19,7 @@ class DishController extends Controller
     {
         //
         $dishes = Dish::all();
+        $restaurants = Restaurant::all();
 
         return view('admin.dishes.index', ['dishes' => $dishes]);
     }
