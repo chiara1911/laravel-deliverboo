@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <section class="container-fluid mt-5">
-        <h3 class="text-center">Lista dei Piatti</h3>
+        <div class="d-flex justify-content-between mb-3">
+            <h3>Lista dei Piatti</h3>
+            <a href="{{ route('admin.dishes.create') }}" class="btn btn-primary">Aggiungi Piatto</a>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="card">

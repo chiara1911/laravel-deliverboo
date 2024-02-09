@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="container">
+    <section class="container-fluid">
         <h1>Modifica il tuo piatto</h1>
         <form action="{{ route('admin.dishes.store') }}" method="POST">
             @csrf
