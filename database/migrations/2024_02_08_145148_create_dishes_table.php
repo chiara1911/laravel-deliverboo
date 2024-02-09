@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->text('ingredients');
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
-            $table->string('image', 255);
+            $table->string('image', 255)->nullable();
             $table->timestamps();
         });
     }

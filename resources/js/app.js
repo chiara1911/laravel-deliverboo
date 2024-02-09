@@ -34,11 +34,11 @@ btn.forEach((button) => {
 
 const previewImage = document.getElementById("image");
 
-previewImage.addEventListener("change", (event)=>{
+previewImage.addEventListener("change", (event) => {
     var Reader = new FileReader();
     Reader.readAsDataURL(previewImage.files[0]);
-    Reader.onload = function(ReadEvent) {
-        document.getElementById("uploaded").src= ReadEvent.target.result;
+    Reader.onload = function (ReadEvent) {
+        document.getElementById("uploaded").src = ReadEvent.target.result;
     };
 });
 

@@ -11,7 +11,7 @@ class UpdateDishRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,27 @@ class UpdateDishRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => ['required', 'max:255'],
+            'price' => ['required', 'numeric'],
+            'visible' => ['required', 'boolean'],
+            'description' => ['nullable'],
+            'ingredients' => ['required'],
+            'image' => ['nullable', 'image']
+        ];
+    }
+    public function messages(): array
+    {
+        return [
             //
+            'name.required' => 'Il nome è obbligatorio',
+            'name.max' => 'Il nome deve avere massimo :max caratteri',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'price.numeric' => 'Il prezzo deve essere un numero',
+            'visible.required' => 'La visibilità è obbligatoria',
+            'visible.boolean' => 'La visibilità deve essere true o false',
+            'description.max' => 'La descrizione deve avere massimo :max caratteri',
+            'ingredients.required' => 'Gli ingredienti sono obbligatori',
+            'image.image' => 'La immagine deve essere un immagine',
         ];
     }
 }

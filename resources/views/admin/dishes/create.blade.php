@@ -4,6 +4,15 @@
         <h1>Aggiungi un nuovo piatto</h1>
         <form action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="mb-3">
                 <label for="name">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name">
@@ -23,17 +32,14 @@
                 <label for="visible">Visible</label>
                 <div class="d-flex gap-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
-                            value="{{ $dish->visible }}" {{ old('visible', $dish->visible) == true ? 'checked' : '' }}
-                            {{ $dish->visible }}>
-                        <label class="form-check-label" for="visibleFalse">
+                        <input class="form-check-input" type="radio" name="visible" id="visibleTrue" value="1"
+                            checked>
+                        <label class="form-check-label" for="visibleTrue">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visibleFalse"
-                            value="{{ $dish->visible }}" {{ old('visible', $dish->visible) == false ? 'checked' : '' }}
-                            {{ $dish->visible }}>
+                        <input class="form-check-input" type="radio" name="visible" id="visibleFalse" value="0">
                         <label class="form-check-label" for="visibleFalse">
                             No
                         </label>
@@ -58,6 +64,25 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="d-flex mb-3 column-gap-3 ">
+
+                <div>
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" id="image" name="image" value="{{ old('image') }}"
+                        class="form-control @error('image') is-invalid @enderror">
+                    @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div>
+                    <img id="uploaded" width="150" src="http://via.placeholder.com/300x200">
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
         </form>
     </section>
 @endsection

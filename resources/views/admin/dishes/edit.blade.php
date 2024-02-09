@@ -2,8 +2,9 @@
 @section('content')
     <section class="container-fluid">
         <h1>Modifica il tuo piatto</h1>
-        <form action="{{ route('admin.dishes.store') }}" method="POST">
+        <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="name">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
