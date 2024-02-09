@@ -35,7 +35,6 @@ class DishController extends Controller
     {
         //
 
-        return view('admin.dishes.create');
     }
 
     /**
