@@ -5,56 +5,56 @@
       "ingredients": "mozzarella, pomodoro, basilico",
       "price": 8.50,
       "description": "",
-      "restaurant_id": 1
+      "restaurant_id": [1, 2]
     },
     {
       "name": "Quattro Stagioni",
       "ingredients": "mozzarella, funghi, prosciutto cotto, carciofi, olive",
       "price": 10.50,
       "description": "",
-      "restaurant_id": 1
+      "restaurant_id": [1]
     },
     {
       "name": "Poke di Tempura",
       "price": 10.49,
       "ingredients": "Tempura di gamberi, Riso, Mango, Cetriolo, Peperoni, Salsa agrodolce, Caviale",
       "description": "",
-      "restaurant_id": 2
+      "restaurant_id": [2]
     },
     {
       "name": "Poke di Granchio",
       "price": 12.49,
       "ingredients": "Granchio, Riso, Avocado, Edamame, Mais, Salsa al lime, Sesamo",
       "description": "",
-      "restaurant_id": 2
+      "restaurant_id": [2]
     },
     {
       "name": "Kebab con Falafel",
       "ingredients": "falafel, insalata, pomodoro, cipolla, salsa tahini, pane pita",
       "price": 7.00,
       "description": "",
-      "restaurant_id": 3
+      "restaurant_id": [3]
     },
     {
       "name": "Kebab Speciale",
       "ingredients": "carne di manzo, carne di pollo, insalata, pomodoro, cipolla, salsa yogurt, pane pita",
       "price": 8.00,
       "description": "",
-      "restaurant_id": 3
+      "restaurant_id": [3]
     },
     {
       "name": "Smash Burger",
       "price": 9.99,
       "ingredients": "Pane, Smash burger, Lattuga, Pomodoro, Cipolla caramellata, Formaggio cheddar, Salsa BBQ",
       "description": "",
-      "restaurant_id": 4
+      "restaurant_id": [4]
     },
     {
       "name": "Jalapeno Burger",
       "price": 10.49,
       "ingredients": "Brioche, Hamburger di manzo, Lattuga, Pomodoro, Formaggio cheddar, Peperoncini jalapeño, Bacon, Maionese piccante",
       "description": "",
-      "restaurant_id": 4
+      "restaurant_id": [4]
     },
     {
       "name": "Panino Caprese",
@@ -62,7 +62,7 @@
       "visible": true,
       "description": "Il panino caprese con mozzarella di bufala, pomodoro e basilico.",
       "ingredients": "mozzarella di bufala, pomodoro, basilico",
-      "restaurant_id": 5
+      "restaurant_id": [5]
     },
     {
       "name": "Panino con Verdure Grigliate",
@@ -70,77 +70,77 @@
       "visible": true,
       "description": "Il panino con verdure grigliate, hummus e rucola fresca.",
       "ingredients": "verdure grigliate, hummus, rucola",
-      "restaurant_id": 5
+      "restaurant_id": [5]
     },
     {
       "name": "Guacamole",
       "ingredients": "avocado, cipolla, pomodoro, coriandolo, limone",
       "price": 6.50,
       "description": "",
-      "restaurant_id": 6
+      "restaurant_id": [6]
     },
     {
       "name": "Fajitas",
       "ingredients": "carne di pollo o manzo, peperoni, cipolla, tortilla di farina",
       "price": 10.00,
       "description": "",
-      "restaurant_id": 6
+      "restaurant_id": [6]
     },
     {
       "name": "Tonkatsu",
       "ingredients": "filetto di maiale, panatura, cavolo, salsa tonkatsu",
       "price": 15.00,
       "description": "",
-      "restaurant_id": 7
+      "restaurant_id": [7]
     },
     {
       "name": "Chirashi",
       "ingredients": "riso, pesce crudo assortito, verdure, alga nori",
       "price": 17.50,
       "description": "",
-      "restaurant_id": 7
+      "restaurant_id": [7]
     },
     {
       "name": "Gamberi saltati al pepe nero",
       "ingredients": "Gamberi, Pepe nero, Aglio, Burro, Salsa di soia, Sake",
       "price": 13.00,
       "description": "",
-      "restaurant_id": 8
+      "restaurant_id": [8]
     },
     {
       "name": "Tang Cu Pai Gu",
       "ingredients": "Costine di maiale, Zenzero, Aglio, Aceto di riso, Zucchero, Salsa di soia",
       "price": 14.00,
       "description": "",
-      "restaurant_id": 8
+      "restaurant_id": [8]
     },
     {
       "name": "Tagliatelle al Ragu",
       "ingredients": "tagliatelle, ragù alla bolognese, parmigiano reggiano",
       "price": 13.50,
       "description": "",
-      "restaurant_id": 9
+      "restaurant_id": [9]
     },
     {
       "name": "Saltimbocca alla Romana",
       "ingredients": "fettine di vitello, prosciutto crudo, salvia, vino bianco, burro",
       "price": 16.00,
       "description": "",
-      "restaurant_id": 9
+      "restaurant_id": [9]
     },
     {
       "name": "Vindaloo di Agnello",
       "ingredients": "agnello, patate, pomodoro, aceto di mele, peperoncino, spezie vindaloo",
       "price": 15.00,
       "description": "",
-      "restaurant_id": 10
+      "restaurant_id": [10]
     },
     {
       "name": "Rogan Josh",
       "ingredients": "agnello, pomodoro, cipolla, zenzero, aglio, spezie garam masala",
       "price": 14.00,
       "description": "",
-      "restaurant_id": 10
+      "restaurant_id": [10]
     },
     {
       "name": "Salmorejo",
@@ -148,7 +148,7 @@
       "visible": true,
       "description": "Zuppa spagnola simile al gazpacho, servita fredda con uova sode e prosciutto tritato come guarnizione.",
       "ingredients": "pomodori, pane, aglio, olio d'oliva, uova sode, prosciutto",
-      "restaurant_id": 11
+      "restaurant_id": [11]
     },
     {
       "name": "Calamares a la Romana",
@@ -156,35 +156,35 @@
       "visible": true,
       "description": "Calamari freschi fritti in pastella, serviti con fettine di limone.",
       "ingredients": "calamari freschi, pastella, limone",
-      "restaurant_id": 11
+      "restaurant_id": [11]
     },
     {
       "name": "Biryani di Pollo",
       "ingredients": "pollo, riso basmati, cipolla, pomodoro, spezie biryani",
       "price": 16.00,
       "description": "",
-      "restaurant_id": 12
+      "restaurant_id": [12]
     },
     {
       "name": "Rogan Josh",
       "ingredients": "agnello, pomodoro, cipolla, zenzero, aglio, spezie garam masala",
       "price": 14.00,
       "description": "",
-      "restaurant_id": 12
+      "restaurant_id": [12]
     },
     {
       "name": "Kleftiko",
       "ingredients": "agnello, patate, cipolla, aglio, pomodoro, vino bianco, spezie",
       "price": 16.00,
       "description": "",
-      "restaurant_id": 13
+      "restaurant_id": [13]
     },
     {
       "name": "Baklava",
       "ingredients": "noci, mandorle, pasta fillo, miele, cannella",
       "price": 7.50,
       "description": "",
-      "restaurant_id": 13
+      "restaurant_id": [13]
     }
 ]
 
