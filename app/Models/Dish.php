@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
+    use HasFactory;
+
+
+    protected $fillable=[ 'name', 'price', 'visible', 'description', 'ingredients', 'restaurant_id', 'image'];
     public function orders()
     {
         return $this->belongsToMany(Order::class);
@@ -15,5 +19,5 @@ class Dish extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
-    use HasFactory;
+   
 }
