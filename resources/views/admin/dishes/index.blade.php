@@ -23,16 +23,16 @@
                                         <p class="text-uppercase text-black ">
                                             {{ $dish->name }}</p>
                                     </td>
-                                    <td class="d-flex justify-content-evenly">
+                                    <td class="text-center">
                                         <a href="{{ route('admin.dishes.show', $dish->id) }}"
                                             class="text-decoration-none btn btn-primary">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('admin.dishes.show', $dish->id) }}"
+                                        <a href="{{ route('admin.dishes.edit', $dish->id) }}"
                                             class="text-decoration-none btn btn-success">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
-                                        <a href="{{ route('admin.dishes.show', $dish->id) }}"
+                                        <a href="{{ route('admin.dishes.destroy', $dish->id) }}"
                                             class="text-decoration-none btn btn-danger">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
