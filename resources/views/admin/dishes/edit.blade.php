@@ -5,7 +5,7 @@
         <form action="{{ route('admin.dishes.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="title">Name</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
                     required minlength="1" maxlength="200" value="{{ old('name', $dish->name) }}">
 
@@ -14,7 +14,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="title">Price</label>
+                <label for="price">Price</label>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
                     id="price" required value="{{ old('price', $dish->price) }}">
                 @error('price')
@@ -22,7 +22,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="title">Visible</label>
+                <label for="visible">Visible</label>
                 <div class="d-flex gap-3">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="body">Description</label>
+                <label for="description">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
                     cols="20" rows="5">{{ old('description', $dish->description) }}
                 </textarea>

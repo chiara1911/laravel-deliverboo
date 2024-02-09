@@ -31,7 +31,6 @@ class DishController extends Controller
     {
         //
 
-        return view('admin.dishes.create');
     }
 
     /**
@@ -51,7 +50,7 @@ class DishController extends Controller
     public function show(Dish $dish)
     {
         //
-        return view('admin.dishes.show', compact('dish'));
+        return view('admin.dishes.show', compact('dishes'));
     }
 
     /**
@@ -60,7 +59,6 @@ class DishController extends Controller
     public function edit(Dish $dish)
     {
         //
-        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
