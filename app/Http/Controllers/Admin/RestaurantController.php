@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
+use App\Models\Type;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
@@ -22,8 +25,8 @@ class RestaurantController extends Controller
         $currentUserId = Auth::id();
 
         $restaurant = Restaurant::where('user_id', $currentUserId)->first();
-         return view('home', ['restaurants' => $restaurant]);
-      
+        return view('home', compact('restaurant'));
+
     }
 
     /**
@@ -32,7 +35,8 @@ class RestaurantController extends Controller
     public function create()
     {
         //
-        return view('admin.restaurants.create');
+        $types = Type::all();
+        return view('admin.restaurants.create', compact('types'));
     }
 
     /**
@@ -40,10 +44,18 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //   
-      
-        // $restaurant = Restaurant::create($formData);
-        return to_route('home');
+        //
+        $formData = $request->validated();
+        $slug = Str::slug($formData['name'], '-');
+        $formData['slug'] = $slug;
+        $image = Storage::put('images', $formData['image']);
+        $formData['image'] = $image;
+
+        $currentUserId = Auth::id();
+        $formData['user_id'] = $currentUserId;
+        $newRestaurant = Restaurant::create($formData);
+        $newRestaurant->types()->attach($request->types);
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
