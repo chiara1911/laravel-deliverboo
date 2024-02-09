@@ -28,7 +28,6 @@ class StoreDishRequest extends FormRequest
             'visible' => ['required', 'boolean'],
             'description' => ['nullable'],
             'ingredients' => ['required'],
-            'restaurant_id' => ['required', 'exists:restaurants,id'],
             'image' => ['nullable', 'image']
 
         ];
@@ -45,7 +44,6 @@ class StoreDishRequest extends FormRequest
             'visible.boolean' => 'La visibilità deve essere true o false',
             'description.max' => 'La descrizione deve avere massimo :max caratteri',
             'ingredients.required' => 'Gli ingredienti sono obbligatori',
-            'restaurant_id.required' => 'Il ristorante è obbligatorio',
             'image.image' => 'La immagine deve essere un immagine',
         ];
     }

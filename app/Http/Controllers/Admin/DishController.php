@@ -55,7 +55,7 @@ class DishController extends Controller
         }
 
         $newDish = Dish::create($formData);
-        dd($newDish);
+
         return redirect()->route('admin.dishes.index');
 
     }
@@ -74,6 +74,7 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        // $restaurant = Auth::user()->restaurant->id;
         return view('admin.dishes.edit', compact('dish'));
     }
 

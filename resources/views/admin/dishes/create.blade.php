@@ -4,6 +4,15 @@
         <h1>Aggiungi un nuovo piatto</h1>
         <form action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="mb-3">
                 <label for="name">Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name">
@@ -23,14 +32,14 @@
                 <label for="visible">Visible</label>
                 <div class="d-flex gap-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visibleTrue" value="true"
+                        <input class="form-check-input" type="radio" name="visible" id="visibleTrue" value="1"
                             checked>
-                        <label class="form-check-label" for="visibleFalse">
+                        <label class="form-check-label" for="visibleTrue">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visibleFalse" value="false">
+                        <input class="form-check-input" type="radio" name="visible" id="visibleFalse" value="0">
                         <label class="form-check-label" for="visibleFalse">
                             No
                         </label>
@@ -73,6 +82,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
         </form>
     </section>
 @endsection
