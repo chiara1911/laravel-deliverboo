@@ -1,42 +1,39 @@
 @extends('layouts.app')
 @section('content')
     <section class="container-fluid mt-5">
-{{-- <h1>{{$restaurant->name}}</h1> --}}
+        {{-- <h1>{{$restaurant->name}}</h1> --}}
         <h3 class="text-center">Lista dei Piatti</h3>
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header ">
+                    <div class="card-header">
                         Tutti i piatti
                     </div>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Nome Piatto</th>
-                                <th>Prezzo</th>
-                                <th>Ingredienti</th>
-                                <th>Modifica</th>
-                                <th>Cancella</th>
+                                <th class="text-center">Azioni</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($dishes as $dish)
                                 <tr>
                                     <td>
-                                        <a href="{{ route('admin.dishes.show', $dish->id) }}" class="text-decoration-none">
-                                            <p class="text-uppercase text-black ">Nome piatto :
-                                                {{ $dish->name }}</p>
-                                        </a>
+                                        <p class="text-uppercase text-black ">
+                                            {{ $dish->name }}</p>
                                     </td>
-                                    <td><p>&euro; {{ $dish->price }}</p></td>
-                                    <td><p>Ingredienti : {{ $dish->ingredients }}</p></td>
-                                    <td>
-                                        <a href="{{ route('admin.dishes.show', $dish->id) }}" class="text-decoration-none btn btn-success">
+                                    <td class="d-flex justify-content-evenly">
+                                        <a href="{{ route('admin.dishes.show', $dish->id) }}"
+                                            class="text-decoration-none btn btn-primary">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                        <a href="{{ route('admin.dishes.show', $dish->id) }}"
+                                            class="text-decoration-none btn btn-success">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.dishes.show', $dish->id) }}" class="text-decoration-none btn btn-danger">
+                                        <a href="{{ route('admin.dishes.show', $dish->id) }}"
+                                            class="text-decoration-none btn btn-danger">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </td>
@@ -48,4 +45,4 @@
                 </div>
             </div>
     </section>
-  @endsection
+@endsection
