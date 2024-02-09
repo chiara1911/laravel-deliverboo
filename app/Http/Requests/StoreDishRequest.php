@@ -23,30 +23,29 @@ class StoreDishRequest extends FormRequest
     {
         return [
             //
-            'name' =>['required', 'max:255'],
+            'name' => ['required', 'max:255'],
             'price' => ['required', 'numeric'],
-            'visible'=> ['required', 'boolean'],
+            'visible' => ['required', 'boolean'],
             'description' => ['nullable'],
             'ingredients' => ['required'],
-            'restaurant_id' =>['required', 'exists:restaurants,id'],
-            'image' => ['required', 'image']
+            'restaurant_id' => ['required', 'exists:restaurants,id'],
+            'image' => ['nullable', 'image']
 
         ];
     }
     public function messages(): array
     {
         return [
-            //       
+            //
             'name.required' => 'Il nome è obbligatorio',
             'name.max' => 'Il nome deve avere massimo :max caratteri',
             'price.required' => 'Il prezzo è obbligatorio',
             'price.numeric' => 'Il prezzo deve essere un numero',
             'visible.required' => 'La visibilità è obbligatoria',
-            'visible.boolean' => 'La visibilità deve essere true o false',       
+            'visible.boolean' => 'La visibilità deve essere true o false',
             'description.max' => 'La descrizione deve avere massimo :max caratteri',
             'ingredients.required' => 'Gli ingredienti sono obbligatori',
             'restaurant_id.required' => 'Il ristorante è obbligatorio',
-            'image.required' => 'La immagine è obbligatoria',
             'image.image' => 'La immagine deve essere un immagine',
         ];
     }

@@ -35,6 +35,7 @@ class DishController extends Controller
     {
         //
 
+        return view('admin.dishes.create');
     }
 
     /**
@@ -42,7 +43,6 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        //
         $formData = $request->validated();
 
         $restaurant = Auth::user()->restaurant->id;
@@ -53,8 +53,11 @@ class DishController extends Controller
             $img_path = Storage::putFileAs('dishes', $formData['image'], $name);
             $formData['image'] = $img_path;
         }
-        $dish = Dish::create($formData);
-        return to_route('admin.dishes.show', $dish->id);
+
+        $newDish = Dish::create($formData);
+        dd($newDish);
+        return redirect()->route('admin.dishes.index');
+
     }
 
     /**

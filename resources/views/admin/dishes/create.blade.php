@@ -23,17 +23,14 @@
                 <label for="visible">Visible</label>
                 <div class="d-flex gap-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
-                            value="{{ $dish->visible }}" {{ old('visible', $dish->visible) == true ? 'checked' : '' }}
-                            {{ $dish->visible }}>
+                        <input class="form-check-input" type="radio" name="visible" id="visibleTrue" value="true"
+                            checked>
                         <label class="form-check-label" for="visibleFalse">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visibleFalse"
-                            value="{{ $dish->visible }}" {{ old('visible', $dish->visible) == false ? 'checked' : '' }}
-                            {{ $dish->visible }}>
+                        <input class="form-check-input" type="radio" name="visible" id="visibleFalse" value="false">
                         <label class="form-check-label" for="visibleFalse">
                             No
                         </label>
@@ -58,6 +55,24 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+
+            <div class="d-flex mb-3 column-gap-3 ">
+
+                <div>
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" id="image" name="image" value="{{ old('image') }}"
+                        class="form-control @error('image') is-invalid @enderror">
+                    @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div>
+                    <img id="uploaded" width="150" src="http://via.placeholder.com/300x200">
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </section>
 @endsection
