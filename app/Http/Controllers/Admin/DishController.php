@@ -9,19 +9,23 @@ use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 use App\Models\Dish;
 use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class DishController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $dishes = Dish::all();
-        $restaurants = Restaurant::all();
+        $restaurant = Auth::user()->restaurant->id;
+        $dishes = Dish::where('restaurant_id', $restaurant)->get();
 
-        return view('admin.dishes.index', ['dishes' => $dishes]);
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
@@ -41,6 +45,15 @@ class DishController extends Controller
     {
         //
         $formData = $request->validated();
+
+        $restaurant = Auth::user()->restaurant->id;
+        $formData['restaurant_id'] = $restaurant;
+
+        if ($request->hasFile('image')) {
+            $name = Str::slug($formData['name'], '-') . '.jpg';
+            $img_path = Storage::putFileAs('dishes', $formData['image'], $name);
+            $formData['image'] = $img_path;
+        }
         $dish = Dish::create($formData);
         return to_route('admin.dishes.show', $dish->id);
     }
@@ -51,7 +64,7 @@ class DishController extends Controller
     public function show(Dish $dish)
     {
         //
-        return view ('admin.dishes.show', compact('dishes'));
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
@@ -59,7 +72,7 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**
@@ -67,7 +80,19 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        //
+        $formData = $request->validated();
+
+        $restaurant = Auth::user()->restaurant->id;
+        $formData['restaurant_id'] = $restaurant;
+
+        if ($request->hasFile('image')) {
+            Storage::delete($dish->image);
+            $name = Str::slug($formData['name'], '-') . '.jpg';
+            $img_path = Storage::putFileAs('dishes', $formData['image'], $name);
+            $formData['image'] = $img_path;
+        }
+        $dish->update($formData);
+        return to_route('admin.dishes.show', $dish->id);
     }
 
     /**
@@ -75,6 +100,11 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+        if ($dish->image) {
+            Storage::delete($dish->image);
+        }
+        return to_route('admin.dishes.index')->with('message', "Il piatto '$dish->name' è stato cancellato");
+        ;
     }
 }
