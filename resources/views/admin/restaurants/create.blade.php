@@ -65,8 +65,8 @@
                             <h6>Seleziona il Tipo di Cucina della tua Attività:</h6>
                             @foreach ($types as $type)
                                 <div class="form-check @error('types') is-invalid @enderror">
-                                    <input type="checkbox" class="form-check-input" name="types" value="{{$type->id}}"
-                                    {{$type->name}}>
+                                    <input type="checkbox" class="form-check-input" name="types[]" value="{{$type->id}}"
+                                   {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
                                     <label for="types" class="form-check-label">
                                     {{$type->name}}
                                     </label>

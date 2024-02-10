@@ -26,6 +26,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('dishes', DishController::class)->parameters([
         'dishes' => 'dish:id'
     ]);
+    Route::post('/dishes/{id}', [DishController::class, 'restore'])->name('dishes.restore')->withTrashed();
     Route::resource('restaurants', RestaurantController::class)->parameters([
         'restaurants' => 'restaurant:id'
     ]);

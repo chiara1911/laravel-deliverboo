@@ -24,8 +24,8 @@ class StoreRestaurantRequest extends FormRequest
         return [
             //
             'name' => ['required', 'max:255'],
-            'vat' => ['required', 'max:11'],
-            'image' => ['required', 'image'],
+            'vat' => ['required', 'max:11', 'unique:restaurants'],
+            'image' => ['required', 'image', 'max:1024', 'mimes:jpg'],
             'address' => ['required', 'max:255'],
             'types'=> ['required', 'exists:types,id'],
         ];
@@ -36,10 +36,13 @@ class StoreRestaurantRequest extends FormRequest
             //
             'name.required' => 'Il nome è obbligatorio',
             'name.max' => 'Il nome del tuo ristorante deve avere massimo :max caratteri',
-            'vat.required' =>'Il vat è obbligatorio',
-            'vat.max' =>'Il vat deve avere massimo :max caratteri',
-            'image.required' => 'La immagine è obbligatoria',
-            'image.image' => 'La immagine deve essere un immagine',
+            'vat.unique' => 'Il numero della P.Iva è già registrato nel nostro database.',
+            'vat.required' =>'Il numero della P.Iva è obbligatorio',
+            'vat.max' =>'Il numero della P.Iva deve avere massimo :max caratteri',
+            'image.required' => 'L\' immagine è obbligatoria',
+            'image.image' => 'Il file deve essere di tipo immagine',
+            'image.max' => 'Il file deve pesare massimo 1mb',
+            'image.mimes' => 'Il file deve essere di tipo jpg',
             'address.required' => 'L\'indirizzo è obbligatorio',
             'address.max' => 'L\'indirizzo deve avere massimo :max caratteri',
             'types.required' => 'Seleziona almeno una tipologia per il tuo ristorante',

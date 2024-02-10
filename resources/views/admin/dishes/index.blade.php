@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
     <section class="container-fluid mt-5">
+        @if (session()->has('message'))
+            <div class="alert alert-success">{{ session('message') }}</div>
+        @endif
         <div class="d-flex justify-content-between mb-3">
             <h3>Lista dei Piatti</h3>
             <a href="{{ route('admin.dishes.create') }}" class="btn btn-primary">Aggiungi Piatto</a>
@@ -49,8 +53,51 @@
                         </tbody>
                     </table>
 
+
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Tutti i piatti cancellati
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome Piatto</th>
+                                <th class="text-center">Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($deletedDishes as $dish)
+                                <tr>
+                                    <td>
+                                        <p class="text-uppercase text-black ">
+                                            {{ $dish->name }}</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center justify-content-evenly">
+                                            <a href="{{ route('admin.dishes.show', $dish->id) }}"
+                                                class="text-decoration-none btn btn-primary">
+                                                <i class="fa-solid fa-eye"></i>
+                                             </a>
+
+                                            <form action="{{ route('admin.dishes.restore', $dish->id) }}" method="POST">
+                                                @csrf
+                                                {{-- @method('DELETE') --}}
+                                                <button type="submit" class="btn btn-danger ms-3"
+                                                    data-item-title="{{ $dish->name }}"><i
+                                                        class="fa-solid fa-rotate-left"></i></button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+
                 </div>
             </div>
+
     </section>
 
     <!-- Modal -->
