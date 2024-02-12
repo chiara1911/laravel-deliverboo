@@ -25,7 +25,7 @@ class DishController extends Controller
 
         $restaurant = Auth::user()->restaurant;
         $restaurantId = $restaurant->id;
-        $dishes = Dish::where('restaurant_id', $restaurant)->orderBy('name')->get();
+        $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->get();
         $deletedDishes = Dish::where('restaurant_id', $restaurantId)->onlyTrashed()->get();
 // dd($deletedDishes);
         return view('admin.dishes.index', compact('dishes', 'deletedDishes', 'restaurant'));
