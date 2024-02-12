@@ -87,7 +87,7 @@
                         <label for="image" class="mb-2">Immagine</label>
                         <div class="d-flex mb-4">
                             <div class="me-3 img-preview-box">
-                                <img id="uploaded" src="https://via.placeholder.com/200x110" width="100">
+                                <img id="uploaded" src="https://via.placeholder.com/200x110" >
                             </div>
                             <div class="mb-3">
                                 <input class="form-control " name="image" type="file" id="image" value="{{ old('image') }}" required>

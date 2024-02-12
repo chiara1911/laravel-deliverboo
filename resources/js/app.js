@@ -109,16 +109,18 @@ Array.from(forms).forEach((form) => {
                 }
             }
 
-            const oFile = document.getElementById("image").files[0]; // <input type="file" id="fileUpload" accept=".jpg,.png,.gif,.jpeg"/>
+            const imgFile = document.getElementById("image"); // <input type="file" id="fileUpload" accept=".jpg,.png,.gif,.jpeg"/>
             let fileSize = true;
 
-            if (oFile){
-                console.log(oFile);
-                if (oFile.size > 1097152) {
-                    fileSize = false;
-                    oFile = '';
-                    // 2 MiB for bytes.
-                    alert("File size must under 1MiB!");
+            if (imgFile){
+                if (imgFile.files[0]){
+                    console.log(imgFile.files[0]);
+                    if (imgFile.files[0].size > 1097152) {
+                        fileSize = false;
+                        // 2 MiB for bytes.
+                        // alert("File size must under 1MiB!");
+                        document.querySelector('.invalid-feedback-max-size').classList.remove('d-none');
+                    }
                 }
             }
 

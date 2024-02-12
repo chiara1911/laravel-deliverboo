@@ -45,9 +45,8 @@
                                 {{ __('Home') }}
                             </a>
                         </li> --}}
-                        @guest
-                        @else
-                            <li class="nav-item">
+                        @if (Auth::user()->restaurant)
+                        <li class="nav-item">
                                 <a class="nav-link {{ Route::currentRouteName() == 'admin.dishes.index' ? 'active' : '' }}"
                                     href="{{ route('admin.dishes.index') }}">
                                     Il tuo menù
@@ -67,7 +66,7 @@
                                     Statistiche ordini
                                 </a>
                             </li>
-                        @endguest
+                @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

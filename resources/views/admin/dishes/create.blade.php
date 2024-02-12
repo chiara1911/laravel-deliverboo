@@ -70,16 +70,14 @@
 
                 <div>
                     <label for="image" class="form-label d-block">Immagine</label>
-                    <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg)</small>
+                    <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superi i 3 mb-0 )</small>
                     <div class=" d-flex  align-items-center">
-                        <div class="me-4">
+                        <div class="me-4 img-preview-box">
                             <img id="uploaded" width="150" src="http://via.placeholder.com/300x200">
                         </div>
                         <input type="file" id="image" name="image" value="{{ old('image') }}"
                             class="form-control @error('image') is-invalid @enderror" multiple accept=".jpg">
-                        @error('image')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                            <div class="invalid-feedback-max-size d-none">Il file non può superare i 3Mb</div>
                     </div>
                 </div>
             </div>
