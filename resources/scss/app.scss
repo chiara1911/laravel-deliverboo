@@ -8,7 +8,43 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400;1,700;1,800;1,900&display=swap');
 
-h1 {
-    color: $text-color;
+body{
+    font-family: $primary-font;
+}
+.logo-wrapper {
+    // width: 150px;
+    height: 70px;
+    img{
+
+        height: 100%;
+    }
+}
+.active{
+    color: $color-tertiary !important;
+}
+nav.navbar{
+    background-color: $color-primary !important;
+    .nav-item{
+        font-size: 1.2em;
+        a{
+            font-weight: bold;
+            color: $color-black;
+            &:hover{
+                color: $color-tertiary;
+            }
+
+        }
+    }
+    .dropdown-menu{
+        background-color: $color-tertiary;
+        a{
+        color: $color-white;
+        &:hover{
+            color: $color-tertiary;
+        }
+
+        }
+    }
 }
