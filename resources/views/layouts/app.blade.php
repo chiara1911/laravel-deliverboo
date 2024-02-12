@@ -45,6 +45,10 @@
                                 {{ __('Home') }}
                             </a>
                         </li> --}}
+                        @guest
+                        @else
+
+                       
                         @if (Auth::user()->restaurant)
                         <li class="nav-item">
                                 <a class="nav-link {{ Route::currentRouteName() == 'admin.dishes.index' ? 'active' : '' }}"
@@ -67,6 +71,7 @@
                                 </a>
                             </li>
                 @endif
+                @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
