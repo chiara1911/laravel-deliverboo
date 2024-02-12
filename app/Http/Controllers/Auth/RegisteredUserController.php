@@ -31,17 +31,24 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
         try {
+
             $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'surname' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-                'password' => ['required', 'confirmed', Rules\Password::defaults()],
             ]);
+
         } catch (Throwable $e) {
             // return to_route('auth.register')->with('message', "ciaooooo");
-            return redirect()->back()->with('message', "Questa email e'già stata registrata")->withInput();
+            return redirect()->back()->with('messaggino', "Questa email e' già stata registrata")->withInput();
         }
+
 
         $user = User::create([
             'name' => $request->name,
