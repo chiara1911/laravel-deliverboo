@@ -166,3 +166,11 @@ nav.navbar{
     font-weight: bold;
     color: $color-white;
 }
+.no-image{
+    width: 400px;
+    height: 400px;
+    background-color: $color-bg-primary;
+    img{
+        filter: brightness(350%);
+    }
+}
