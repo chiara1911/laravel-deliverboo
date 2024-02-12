@@ -4,6 +4,7 @@ import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 import './mychart.js';
 
+// modale
 const btn = document.querySelectorAll(".cancel-btn");
 btn.forEach((button) => {
     button.addEventListener("click", (event) => {
@@ -28,11 +29,11 @@ btn.forEach((button) => {
         const btnRemove = modal.querySelector("button.btn-danger");
         btnRemove.addEventListener("click", (event) => {
             button.parentElement.submit();
-        })
-
-    })
+        });
+    });
 });
 
+// image preview
 const previewImage = document.getElementById("image");
 
 previewImage.addEventListener("change", (event) => {
@@ -43,3 +44,38 @@ previewImage.addEventListener("change", (event) => {
     };
 });
 
+const forms = document.querySelectorAll('.needs-validation')
+
+// // Loop over them and prevent submission
+// Array.from(forms).forEach(form => {
+//   form.addEventListener('submit', event => {
+//     if (!form.checkValidity()) {
+//       event.preventDefault()
+//       event.stopPropagation()
+//     }
+
+//     form.classList.add('was-validated')
+//   }, false)
+//     console.log('validazione entrata');
+// });
+
+// Loop over them and prevent submission
+Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      let check = document.querySelectorAll(".check-type")
+
+      if (check === true) {
+
+      } else {
+
+      }
+
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+      console.log('validazione entrata');
+  });

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <section class="container-fluid">
-        <h1>Aggiungi un nuovo piatto</h1>
-        <form action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data">
+        <h1 class="mb-4 mt-2">Aggiungi un nuovo piatto</h1>
+        <form class="needs-validation" action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -14,22 +14,24 @@
                 </div>
             @endif
             <div class="mb-3">
-                <label for="name">Name</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name">
+                <label for="name" class="mb-2">Nome</label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" required>
+                <div class="invalid-feedback">Inserisci un nome per il piatto</div>
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="price">Price</label>
+                <label for="price" class="mb-2">Prezzo</label>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
-                    id="price" value="{{ old('price') }}">
+                    id="price" value="{{ old('price') }}" required>
+                <div class="invalid-feedback">Inserisci un prezzo valido</div>
                 @error('price')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="visible">Visible</label>
+                <label for="visible" class="mb-2">Visibile</label>
                 <div class="d-flex gap-3">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="visible" id="visibleTrue" value="1"
@@ -47,19 +49,18 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="description">Description</label>
-                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                    cols="20" rows="5">{{ old('description') }}
-                </textarea>
+                <label for="description"class="mb-2">Descrizione</label>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" placeholder="Inserisci una breve descrizione del tuo piatto..."
+                    cols="20" rows="5">{{ old('description') }}</textarea>
                 @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="ingredients">Ingredients</label>
-                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
-                    cols="20" rows="3">{{ old('ingredients') }}
-                </textarea>
+                <label for="ingredients" class="mb-2">Ingredienti</label>
+                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" required placeholder="Insalata, pomodoro, grana, uovo, ecc..."
+                    cols="20" rows="3">{{ old('ingredients') }}</textarea>
+                <div class="invalid-feedback">Inserisci almeno un ingrediente</div>
                 @error('ingredients')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -68,21 +69,25 @@
             <div class="d-flex mb-3 column-gap-3 ">
 
                 <div>
-                    <label for="image" class="form-label">Image</label>
-                    <input type="file" id="image" name="image" value="{{ old('image') }}"
-                        class="form-control @error('image') is-invalid @enderror">
-                    @error('image')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                    <label for="image" class="form-label d-block">Immagine</label>
+                    <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg)</small>
+                    <div class=" d-flex  align-items-center">
+                        <div class="me-4">
+                            <img id="uploaded" width="150" src="http://via.placeholder.com/300x200">
+                        </div>
+                        <input type="file" id="image" name="image" value="{{ old('image') }}"
+                            class="form-control @error('image') is-invalid @enderror" multiple accept=".jpg">
+                        @error('image')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
-                <div>
-                    <img id="uploaded" width="150" src="http://via.placeholder.com/300x200">
-                </div>
-
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-warning">Reset</button>
+            <div class="pt-3">
+                <button type="reset" class="btn btn-warning text-light">Cancella</button>
+                <button type="submit" class="btn btn-primary me-2">Crea</button>
+            </div>
         </form>
     </section>
 @endsection

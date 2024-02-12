@@ -1,29 +1,30 @@
 @extends('layouts.app')
 @section('content')
     <section class="container-fluid">
-        <h1>Modifica il tuo piatto</h1>
-        <form action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
+        <h1 class="mb-4 mt-2">Modifica il tuo piatto</h1>
+        <form class="needs-validation" action="{{ route('admin.dishes.update', $dish->id) }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="name">Name</label>
+                <label for="name" class="mb-2">Nome</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
-                    required minlength="1" maxlength="200" value="{{ old('name', $dish->name) }}">
-
+                required minlength="1" maxlength="200" value="{{ old('name', $dish->name) }}">
+                <div class="invalid-feedback">Inserisci un nome per il piatto</div>
                 @error('name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="price">Price</label>
+                <label for="price" class="mb-2">Prezzo</label>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
                     id="price" required value="{{ old('price', $dish->price) }}">
+                <div class="invalid-feedback">Inserisci un prezzo valido</div>
                 @error('price')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="visible">Visible</label>
+                <label for="visible">Visibile</label>
                 <div class="d-flex gap-3">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
@@ -44,19 +45,18 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="description">Description</label>
+                <label for="description" class="mb-2">Descrizione</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                    cols="20" rows="5">{{ old('description', $dish->description) }}
-                </textarea>
+                    cols="20" rows="5" placeholder="Inserisci una breve descrizione del tuo piatto...">{{ old('description', $dish->description) }}</textarea>
                 @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="ingredients">Ingredients</label>
-                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
-                    cols="20" rows="3">{{ old('ingredients', $dish->ingredients) }}
-                </textarea>
+                <label for="ingredients" class="mb-2">Ingredienti</label>
+                <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" placeholder="Insalata, pomodoro, grana, uovo, ecc..." required
+                    cols="20" rows="3">{{ old('ingredients', $dish->ingredients) }}</textarea>
+                <div class="invalid-feedback">Inserisci almeno un ingrediente</div>
                 @error('ingredients')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

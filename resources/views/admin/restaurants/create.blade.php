@@ -4,9 +4,9 @@
     <main>
         <div class="container">
             <div class="card my-2  p-4">
-                <h2 class="pb-3">
+                <h1 class="mb-4 mt-2">
                     Inserisci i dettagli della tua attività:
-                </h2>
+                </h1>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -18,16 +18,17 @@
                 @endif
 
                 {{-- form  --}}
-                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                     @csrf
                     {{-- Nome --}}
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nome:</label>
+                        <label for="name" class="mb-2">Nome</label>
                         <input type="text"
                             class="form-control @error('name') is-invalid @enderror"
                             id="name" name="name"
                             value="{{old('name')}}"
                             required>
+                        <div class="invalid-feedback">Inserisci un nome per la tua attività</div>
                         @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -35,12 +36,13 @@
 
                     {{-- VAT --}}
                     <div class="mb-3">
-                        <label for="vat" class="form-label">P.Iva:</label>
+                        <label for="vat" class="mb-2">P.Iva</label>
                         <input type="text"
                             class="form-control @error('vat') is-invalid @enderror"
                             id="vat" name="vat"
                             value="{{old('vat')}}"
                             required>
+                        <div class="invalid-feedback">Inserisci un codice di P.Iva valido (11 cifre)</div>
                         @error('vat')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -48,12 +50,13 @@
 
                     {{-- Indirizzo --}}
                     <div class="mb-3">
-                        <label for="address" class="form-label">Indirizzo:</label>
+                        <label for="address" class="mb-2">Indirizzo</label>
                         <input type="text"
                             class="form-control @error('address') is-invalid @enderror"
                             id="address" name="address"
                             value="{{old('address')}}"
                             required>
+                        <div class="invalid-feedback">Inserisci un indirizzo</div>
                         @error('address')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -62,16 +65,17 @@
                     {{-- Tipologia --}}
                     <div class="mb-3">
                         <div class="form-group">
-                            <h6>Seleziona il Tipo di Cucina della tua Attività:</h6>
+                            <h6>Seleziona il Tipo di Cucina della tua Attività </h6>
                             @foreach ($types as $type)
                                 <div class="form-check @error('types') is-invalid @enderror">
-                                    <input type="checkbox" class="form-check-input" name="types[]" value="{{$type->id}}"
+                                    <input type="checkbox" class="form-check-input check-type" name="types[]" value="{{$type->id}}"
                                    {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
                                     <label for="types" class="form-check-label">
                                     {{$type->name}}
                                     </label>
                                 </div>
                             @endforeach
+                            <div class="invalid-feedback">Inserisci un prezzo valido</div>
                             @error('types')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -80,13 +84,13 @@
 
                     {{-- Immagine --}}
                     <div class="mt-3">
-                        <label for="image" class="form-label">Inserisci una foto di riferimento:</label>
+                        <label for="image" class="mb-2">Immagine</label>
                         <div class="d-flex mb-4">
                             <div class="me-3 img-preview-box">
                                 <img id="uploaded" src="https://via.placeholder.com/200x110" width="100">
                             </div>
                             <div class="mb-3">
-                                <input class="form-control " name="image" type="file" id="image" value="{{ old('image') }}">
+                                <input class="form-control " name="image" type="file" id="image" value="{{ old('image') }}" required>
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -95,8 +99,10 @@
                     </div>
 
                     {{-- Bottoni --}}
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                    <button type="submit" class="btn btn-primary">Prosegui</button>
+                    <div class="pt-3">
+                        <button type="reset" class="btn btn-warning text-light">Cancella</button>
+                        <button type="submit" class="btn btn-primary me-2">Crea</button>
+                    </div>
                 </form>
             </div>
         </div>
