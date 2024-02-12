@@ -2,7 +2,7 @@ import "./bootstrap";
 import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
-import './mychart.js';
+import "./mychart.js";
 
 // modale
 const btn = document.querySelectorAll(".cancel-btn");
@@ -36,15 +36,17 @@ btn.forEach((button) => {
 // image preview
 const previewImage = document.getElementById("image");
 
-previewImage.addEventListener("change", (event) => {
-    var Reader = new FileReader();
-    Reader.readAsDataURL(previewImage.files[0]);
-    Reader.onload = function (ReadEvent) {
-        document.getElementById("uploaded").src = ReadEvent.target.result;
-    };
-});
+if (previewImage) {
+    previewImage.addEventListener("change", (event) => {
+        var Reader = new FileReader();
+        Reader.readAsDataURL(previewImage.files[0]);
+        Reader.onload = function (ReadEvent) {
+            document.getElementById("uploaded").src = ReadEvent.target.result;
+        };
+    });
+}
 
-const forms = document.querySelectorAll('.needs-validation')
+const forms = document.querySelectorAll(".needs-validation");
 
 // // Loop over them and prevent submission
 // Array.from(forms).forEach(form => {
@@ -60,22 +62,44 @@ const forms = document.querySelectorAll('.needs-validation')
 // });
 
 // Loop over them and prevent submission
-Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      let check = document.querySelectorAll(".check-type")
+Array.from(forms).forEach((form) => {
+    form.addEventListener(
+        "submit",
+        (event) => {
+            let checkBox = document.querySelectorAll(".check-type");
 
-      if (check === true) {
+            for (let i = 0; i < checkBox.length; i++) {
+                checkBox[i].setAttribute("required", "");
+            }
 
-      } else {
+            for (let i = 0; i < checkBox.length; i++) {
+                if (checkBox[i].checked) {
+                    for (let i = 0; i < checkBox.length; i++) {
+                        checkBox[i].removeAttribute("required", "");
+                    }
+                }
+            }
 
-      }
+            const oFile = document.getElementById("image").files[0]; // <input type="file" id="fileUpload" accept=".jpg,.png,.gif,.jpeg"/>
+            let fileSize = true;
 
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+            if (oFile){
+                console.log(oFile);
+                if (oFile.size > 1097152) {
+                    fileSize = false;
+                    oFile = '';
+                    // 2 MiB for bytes.
+                    alert("File size must under 1MiB!");
+                }
+            }
 
-      form.classList.add('was-validated')
-    }, false)
-      console.log('validazione entrata');
-  });
+            if (!form.checkValidity() || !fileSize) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add("was-validated");
+        },
+        false
+    );
+});

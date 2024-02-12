@@ -23,7 +23,7 @@ class DishController extends Controller
     {
         //
         $restaurant = Auth::user()->restaurant->id;
-        $dishes = Dish::where('restaurant_id', $restaurant)->get();
+        $dishes = Dish::where('restaurant_id', $restaurant)->orderBy('name')->get();
         $deletedDishes = Dish::where('restaurant_id', $restaurant)->onlyTrashed()->get();
 // dd($deletedDishes);
         return view('admin.dishes.index', compact('dishes', 'deletedDishes'));
@@ -104,19 +104,19 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-       
+
         $dish->delete();
         // if ($dish->image) {
         //     Storage::delete($dish->image);
         // }
         return to_route('admin.dishes.index')->with('message', "Il piatto '$dish->name' è stato cancellato");
-        
+
     }
     public function restore($id)
-    {       
+    {
         $dish= Dish::withTrashed()->find($id);
         $dish->restore();
         return to_route('admin.dishes.index')->with('message', "Il piatto '$dish->name' è stato ripristinato");
-        
+
     }
 }
