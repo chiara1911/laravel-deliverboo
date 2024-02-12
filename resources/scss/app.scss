@@ -166,6 +166,15 @@ nav.navbar{
     font-weight: bold;
     color: $color-white;
 }
+
+.img-preview-box {
+    width: 200px;
+  
+    img {
+        object-fit: cover;
+    }
+}
+
 .no-image{
     width: 400px;
     height: 400px;
