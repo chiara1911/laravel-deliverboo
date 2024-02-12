@@ -1,33 +1,18 @@
 @extends('layouts.app')
+
 @section('content')
+@include('partials.hero')
 
     <section>
-        <div id="restaurant-cover" class="d-flex justify-content-center align-items-center">
-            <img src="{{ asset('storage/' . $restaurant->image) }}" alt="{{$restaurant->name}}">
-            <div class="card text-center">
-                <div class="card-header bg-white">
-                    <h2>{{$restaurant->name}}</h2>
+        <div id="menu" class="container">
 
-                </div>
-                <div class="card-body">
-                    <p class="d-flex justify-content-center  column-gap-2">
-                        @foreach ($restaurant->types as $type)
-                            <span>{{$type->name}}</span>
-                        @endforeach
-                    </p>
-                    <p>{{$restaurant->address}}</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mt-5">
 
             @if (session()->has('message'))
                 <div class="alert alert-success">{{ session('message') }}</div>
             @endif
-            <div class="d-flex justify-content-between mb-3">
-                <h3>Lista dei Piatti</h3>
-                <a href="{{ route('admin.dishes.create') }}" class="btn btn-primary">Aggiungi Piatto</a>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="">Lista dei Piatti</h3>
+                <a href="{{ route('admin.dishes.create') }}" class="btn btn-edit">Aggiungi Piatto</a>
             </div>
             <div class="row">
                 <div class="col-12">
