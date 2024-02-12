@@ -24,7 +24,7 @@
             <div class="mb-3">
                 <label for="price" class="mb-2">Prezzo</label>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
-                    id="price" value="{{ old('price') }}" required>
+                    id="price" value="{{ old('price') }}" step=".01" min="0" required>
                 <div class="invalid-feedback">Inserisci un prezzo valido</div>
                 @error('price')
                     <div class="invalid-feedback">{{ $message }}</div>

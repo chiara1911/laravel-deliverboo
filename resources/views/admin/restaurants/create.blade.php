@@ -75,7 +75,7 @@
                                     </label>
                                 </div>
                             @endforeach
-                            <div class="invalid-feedback">Inserisci un prezzo valido</div>
+                            <div class="invalid-feedback">Seleziona almeno una tipologia per il tuo ristorante</div>
                             @error('types')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
