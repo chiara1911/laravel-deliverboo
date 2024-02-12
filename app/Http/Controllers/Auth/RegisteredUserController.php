@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             ]);
         } catch (Throwable $e) {
             // return to_route('auth.register')->with('message', "ciaooooo");
-            return redirect()->back()->with('message', "ciaooooo");
+            return redirect()->back()->with('message', "Questa email e'già stata registrata")->withInput();
         }
 
         $user = User::create([
