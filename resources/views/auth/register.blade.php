@@ -7,6 +7,9 @@
             <div class="card">
                 <div class="card-header">Registrati</div>
 
+                @if (session()->has('message'))
+                    <div class="alert alert-success">{{ session('message') }}</div>
+                @endif
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                         @csrf
@@ -50,6 +53,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+
                             </div>
                         </div>
 
