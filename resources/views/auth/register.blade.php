@@ -46,12 +46,12 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                <div class="invalid-feedback">Inserisci un indirizzo email</div>
-                                @error('email')
+                                <div class="invalid-feedback">La mail che hai inserito non è corretta oppure esiste già nei nostri database</div>
+                                {{-- @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                                @enderror
+                                @enderror --}}
 
                             </div>
                         </div>
