@@ -19,10 +19,10 @@
                 @php
                     $restaurant = Auth::user()->restaurant;
                 @endphp
-                <div class="card">
+                {{-- <div class="card">
 
                     <h5>{{$restaurant->name}}</h5>
-                </div>
+                </div> --}}
                     @else
                     <p>
                         Sei un nuovo utente ?
@@ -33,7 +33,7 @@
                         </button>
                     </a>
                 @endif
-               
+
             </div>
         @endguest
     </section>

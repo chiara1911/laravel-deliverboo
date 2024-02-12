@@ -15,6 +15,27 @@ $fa-font-path: "../fonts/webfonts" !default;
 body{
     font-family: $primary-font;
 }
+
+
+img{
+    width: 100%;
+}
+
+a{
+    // text-decoration: none;
+    color: $color-tertiary;
+    font-weight: 600;
+    &:hover{
+        color: $color-primary;
+    }
+}
+
+.color-tertiary{
+    color: $color-tertiary;
+}
+
+// ****** NAVBAR *******
+
 .logo-wrapper {
     height: 70px;
     img{
@@ -49,14 +70,7 @@ nav.navbar{
     }
 }
 
-a{
-    // text-decoration: none;
-    color: $color-tertiary;
-    font-weight: 600;
-    &:hover{
-        color: $color-primary;
-    }
-}
+// ****** BUTTONS *******
 
 .btn-trash{
     background-color: $color-secondary;
@@ -85,29 +99,70 @@ a{
     }
 }
 
-
-.table-card .card-header{
-    background-color: $color-tertiary !important;
+.btn-yellow{
+    background-color: $color-primary;
+    a{
+        color: $color-white;
+        text-decoration: none;
+        font-size: 1.3em;
+    }
+    &:hover{
+    background-color: $color-primary-hover;
+    color: $color-white;
+    }
 }
 
+
+// ****** TABLES *******
+
+.table-card .card-header{
+    background-color: $color-primary-hover !important;
+    color: $color-white;
+}
+
+
 // ****** MENU PAGE *******
+.page-title{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: $color-secondary;
+    width: fit-content;
+    font-weight: bold;
+    color: $color-white;
+}
 
 #restaurant-cover{
-    height: 400px;
+    height: 300px;
     overflow: hidden;
     position: relative;
+
     img{
         object-fit: cover;
         width: 100%;
         object-position: center;
     }
-    .card{
+    #restaurant-card{
         border: 3px solid $color-primary;
         position: absolute;
         left:50%;
-        bottom: 30px;
+        top: 40%;
         transform: translate(-50%, 0);
-        width: 40%;
+        width: 50%;
         z-index: 100;
+        @media screen and (max-width: 768px) {
+            width: 90%;
+        }
     }
+}
+
+
+// ****** DISH SHOW PAGE *******
+
+.dish-section-title{
+    padding: 10px;
+    border-radius: 20px;
+    background-color: $color-primary-hover;
+    width: fit-content;
+    font-weight: bold;
+    color: $color-white;
 }
