@@ -1,0 +1,42 @@
+[
+    {
+        "nome": "Mario",
+        "cognome": "Rossi",
+        "indirizzo": "Via Roma, 1",
+        "email": "mario.rossi@example.com",
+        "telefono": "0954873052",
+        "prezzo_totale": 35.50
+    },
+    {
+        "nome": "Laura",
+        "cognome": "Bianchi",
+        "indirizzo": "Corso Italia, 10",
+        "email": "laura.bianchi@example.com",
+        "telefono": "0930567392",
+        "prezzo_totale": 55.20
+    },
+    {
+        "nome": "Luigi",
+        "cognome": "Verdi",
+        "indirizzo": "Via Garibaldi, 5",
+        "email": "luigi.verdi@example.com",
+        "telefono": "0945296638",
+        "prezzo_totale": 42.80
+    },
+    {
+        "nome": "Giovanna",
+        "cognome": "Ferrari",
+        "indirizzo": "Piazza Dante, 3",
+        "email": "giovanna.ferrari@example.com",
+        "telefono": "0956395610",
+        "prezzo_totale": 48.90
+    },
+    {
+        "nome": "Marco",
+        "cognome": "Russo",
+        "indirizzo": "Via Milano, 15",
+        "email": "marco.russo@example.com",
+        "telefono": "0956201345",
+        "prezzo_totale": 75.60
+    }
+]
