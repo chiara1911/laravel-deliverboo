@@ -2,6 +2,7 @@ import "./bootstrap";
 import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
+import './mychart.js';
 
 const btn = document.querySelectorAll(".cancel-btn");
 btn.forEach((button) => {
