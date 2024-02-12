@@ -1,42 +1,52 @@
 [
     {
-        "nome": "Mario",
-        "cognome": "Rossi",
-        "indirizzo": "Via Roma, 1",
+        "name": "Mario",
+        "surname": "Rossi",
+        "address": "Via Roma, 1",
         "email": "mario.rossi@example.com",
-        "telefono": "0954873052",
-        "prezzo_totale": 35.50
+        "phone": "0954873052",
+        "total_price": 35.50,
+        "created_at": "2024-01-20 21:34:20",
+        "updated_at": "2024-01-20 21:34:20"
     },
     {
-        "nome": "Laura",
-        "cognome": "Bianchi",
-        "indirizzo": "Corso Italia, 10",
+        "name": "Laura",
+        "surname": "Bianchi",
+        "address": "Corso Italia, 10",
         "email": "laura.bianchi@example.com",
-        "telefono": "0930567392",
-        "prezzo_totale": 55.20
+        "phone": "0930567392",
+        "total_price": 25.20,
+        "created_at": "2024-01-12 18:14:39",
+        "updated_at": "2024-01-12 18:14:39"
     },
     {
-        "nome": "Luigi",
-        "cognome": "Verdi",
-        "indirizzo": "Via Garibaldi, 5",
+        "name": "Luigi",
+        "surname": "Verdi",
+        "address": "Via Garibaldi, 5",
         "email": "luigi.verdi@example.com",
-        "telefono": "0945296638",
-        "prezzo_totale": 42.80
+        "phone": "0945296638",
+        "total_price": 42.80,
+        "created_at": "2023-12-30 12:04:10",
+        "updated_at": "2023-12-30 12:04:10"
     },
     {
-        "nome": "Giovanna",
-        "cognome": "Ferrari",
-        "indirizzo": "Piazza Dante, 3",
+        "name": "Giovanna",
+        "surname": "Ferrari",
+        "address": "Piazza Dante, 3",
         "email": "giovanna.ferrari@example.com",
-        "telefono": "0956395610",
-        "prezzo_totale": 48.90
+        "phone": "0956395610",
+        "total_price": 48.90,
+        "created_at": "2024-02-03 10:14:50",
+        "updated_at": "2024-02-03 10:14:50"
     },
     {
-        "nome": "Marco",
-        "cognome": "Russo",
-        "indirizzo": "Via Milano, 15",
+        "name": "Marco",
+        "surname": "Russo",
+        "address": "Via Milano, 15",
         "email": "marco.russo@example.com",
-        "telefono": "0956201345",
-        "prezzo_totale": 75.60
+        "phone": "0956201345",
+        "total_price": 35.60,
+        "created_at": "2023-12-31 16:15:45",
+        "updated_at": "2023-12-31 16:15:45"
     }
 ]
