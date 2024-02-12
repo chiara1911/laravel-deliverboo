@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RestaurantController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,9 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('dishes', DishController::class)->parameters([
         'dishes' => 'dish:id'
+    ]);
+    Route::resource('orders', OrderController::class)->parameters([
+        'orders' => 'order:id'
     ]);
     Route::post('/dishes/{id}', [DishController::class, 'restore'])->name('dishes.restore')->withTrashed();
     Route::resource('restaurants', RestaurantController::class)->parameters([
