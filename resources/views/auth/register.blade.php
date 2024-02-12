@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">Registrati</div>
 
+
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                         @csrf
@@ -50,6 +52,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+
                             </div>
                         </div>
 

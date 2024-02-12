@@ -169,8 +169,17 @@ nav.navbar{
 
 .img-preview-box {
     width: 200px;
-
+  
     img {
         object-fit: cover;
+    }
+}
+
+.no-image{
+    width: 400px;
+    height: 400px;
+    background-color: $color-bg-primary;
+    img{
+        filter: brightness(350%);
     }
 }

@@ -12,9 +12,20 @@
             </div>
         </div>
         <div class="row justify-content-between mb-4">
-            <div id="dish-show-img" class="col-12 col-lg-6 px-0">
-                <img src="{{asset('storage/'. $dish->image) }}" alt="{{ $dish->name }}">
+            @if ($dish->image)
+                <div id="dish-show-img" class="col-12 col-lg-6 px-0">
+                    <img src="{{asset('storage/'. $dish->image) }}" alt="{{ $dish->name }}">
+                </div>
+            @else
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+                <div class="no-image d-flex flex-column justify-content-center align-items-center p-3">
+                    <img src="{{ Vite::asset('resources/img/deliveboo-logo.png') }}" alt="no image">
+                    <div class="text-white text-uppercase fs-2 fw-bold">Nessuna immagine</div>
+                </div>
             </div>
+
+            @endif
+
             <div class="p-4 col-12 col-lg-6">
                 <div class="mb-4">
                     <h4 class="dish-section-title">Ingredienti</h4>
