@@ -10,14 +10,14 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,400;1,700;1,800;1,900&display=swap');
 
+// ***** GENERAL ******
+
 body{
     font-family: $primary-font;
 }
 .logo-wrapper {
-    // width: 150px;
     height: 70px;
     img{
-
         height: 100%;
     }
 }
@@ -46,5 +46,68 @@ nav.navbar{
         }
 
         }
+    }
+}
+
+a{
+    // text-decoration: none;
+    color: $color-tertiary;
+    font-weight: 600;
+    &:hover{
+        color: $color-primary;
+    }
+}
+
+.btn-trash{
+    background-color: $color-secondary;
+    color: $color-white;
+    &:hover{
+    background-color: $color-secondary-hover;
+    color: $color-white;
+    }
+}
+
+.btn-edit{
+    background-color: $color-tertiary;
+    color: $color-white;
+    &:hover{
+    background-color: $color-tertiary-hover;
+    color: $color-white;
+    }
+}
+
+.btn-restore{
+    background-color: $color-primary;
+    color: $color-white;
+    &:hover{
+    background-color: $color-primary-hover;
+    color: $color-white;
+    }
+}
+
+
+.table-card .card-header{
+    background-color: $color-tertiary !important;
+}
+
+// ****** MENU PAGE *******
+
+#restaurant-cover{
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    img{
+        object-fit: cover;
+        width: 100%;
+        object-position: center;
+    }
+    .card{
+        border: 3px solid $color-primary;
+        position: absolute;
+        left:50%;
+        bottom: 30px;
+        transform: translate(-50%, 0);
+        width: 40%;
+        z-index: 100;
     }
 }
