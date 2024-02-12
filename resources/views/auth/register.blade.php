@@ -7,9 +7,8 @@
             <div class="card">
                 <div class="card-header">Registrati</div>
 
-                @if (session()->has('messaggino'))
-                    <div class="alert alert-danger w-50 mx-2 my-2">{{ session('messaggino') }}</div>
-                @endif
+
+
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                         @csrf

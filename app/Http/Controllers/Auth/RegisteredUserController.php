@@ -32,25 +32,26 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'surname' => ['required', 'string', 'max:255'],
-        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        // ]);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class]
+        ]);
 
-        try {
+        // try {
 
-            $request->validate([
-                'name' => ['required', 'string', 'max:255'],
-                'surname' => ['required', 'string', 'max:255'],
-                'password' => ['required', 'confirmed', Rules\Password::defaults()],
-                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            ]);
+        //     $request->validate([
+        //         'name' => ['required', 'string', 'max:255'],
+        //         'surname' => ['required', 'string', 'max:255'],
+        //         'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        //         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        //     ]);
 
-        } catch (Throwable $e) {
-            // return to_route('auth.register')->with('message', "ciaooooo");
-            return redirect()->back()->with('messaggino', "Questa email e' già stata registrata")->withInput();
-        }
+        // } catch (Throwable $e) {
+        //     // return to_route('auth.register')->with('message', "ciaooooo");
+        //     return redirect()->back()->with('messaggio', "Questa email e' già stata registrata")->withInput();
+        // }
 
 
         $user = User::create([
