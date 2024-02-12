@@ -66,4 +66,12 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function stats()
+    {
+
+        $orders = Order::all();
+        dd($orders);
+        return view("admin.orders.stats", compact("orders"));
+    }
 }

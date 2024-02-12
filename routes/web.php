@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('orders', OrderController::class)->parameters([
         'orders' => 'order:id'
     ]);
+    Route::get('/orders/stats', [OrderController::class, 'stats'])->name('orders.stats');
     Route::post('/dishes/{id}', [DishController::class, 'restore'])->name('dishes.restore')->withTrashed();
     Route::resource('restaurants', RestaurantController::class)->parameters([
         'restaurants' => 'restaurant:id'
