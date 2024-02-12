@@ -60,6 +60,13 @@
                                     Ordini ricevuti
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::currentRouteName() == 'admin.orders.stats' ? 'active' : '' }}"
+                                    href="{{ route('admin.orders.stats') }}"
+                                    >
+                                    Statistiche ordini
+                                </a>
+                            </li>
                         @endguest
                     </ul>
 

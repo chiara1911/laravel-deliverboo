@@ -1,13 +1,15 @@
 @extends('layouts.app')
 @section('content')
-    <section class="container-fluid mt-5">
+@include('partials.hero')
+
+    <section class="container mt-5">
         @if (session()->has('message'))
             <div class="alert alert-success">{{ session('message') }}</div>
         @endif
-        <h3>Lista degli ordini</h3>
+        <h3 class="text-center mb-3">Lista degli ordini</h3>
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="table-card card">
                     <div class="card-header">
                         Tutti gli ordini
                     </div>

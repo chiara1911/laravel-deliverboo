@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class OrderController extends Controller
 {
@@ -14,9 +17,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+
+        $restaurant = Auth::user()->restaurant;
         $orders = Order::OrderByDesc('created_at')->get();
-        return view("admin.orders.index", compact("orders"));
+        return view("admin.orders.index", compact("orders", "restaurant"));
     }
 
     /**
@@ -65,5 +69,13 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function stats()
+    {
+        $restaurant = Auth::user()->restaurant;
+
+        $orders = Order::all();
+        return view("admin.orders.stats", compact("orders", "restaurant"));
     }
 }

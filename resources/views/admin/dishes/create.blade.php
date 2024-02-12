@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="container-fluid">
+    <section class="container">
         <h1 class="mb-4 mt-2">Aggiungi un nuovo piatto</h1>
         <form class="needs-validation" action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf

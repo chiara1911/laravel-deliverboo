@@ -25,7 +25,7 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->vat = $restaurant['vat'];
             $newRestaurant->user_id = $restaurant['user_id'];
             $newRestaurant->slug = Str::slug($restaurant['name'], '-');
-            $newRestaurant->image = Str::slug($restaurant['name'], '-') . '.jpg';
+            $newRestaurant->image ='restaurants/' . Str::slug($restaurant['name'], '-') . '.jpg';
             $newRestaurant->save();
             $newRestaurant->types()->sync($restaurant['types']);
         }

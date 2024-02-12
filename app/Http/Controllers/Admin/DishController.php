@@ -22,11 +22,13 @@ class DishController extends Controller
     public function index()
     {
         //
-        $restaurant = Auth::user()->restaurant->id;
+
+        $restaurant = Auth::user()->restaurant;
+        $restaurantId = $restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurant)->orderBy('name')->get();
-        $deletedDishes = Dish::where('restaurant_id', $restaurant)->onlyTrashed()->get();
+        $deletedDishes = Dish::where('restaurant_id', $restaurantId)->onlyTrashed()->get();
 // dd($deletedDishes);
-        return view('admin.dishes.index', compact('dishes', 'deletedDishes'));
+        return view('admin.dishes.index', compact('dishes', 'deletedDishes', 'restaurant'));
     }
 
     /**
