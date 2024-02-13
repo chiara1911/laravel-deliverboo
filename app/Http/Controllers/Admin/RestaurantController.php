@@ -48,9 +48,11 @@ class RestaurantController extends Controller
         $formData = $request->validated();
         $slug = Str::slug($formData['name'], '-');
         $formData['slug'] = $slug;
-        $image = Storage::put('images', $formData['image']);
-        $formData['image'] = $image;
-
+        if ($request->hasFile('image')) {
+            $name = Str::slug($formData['name'], '-') . '.jpg';
+            $img_path = Storage::putFileAs('restaurants', $formData['image'], $name);
+            $formData['image'] = $img_path;
+        }
         $currentUserId = Auth::id();
         $formData['user_id'] = $currentUserId;
         $newRestaurant = Restaurant::create($formData);
