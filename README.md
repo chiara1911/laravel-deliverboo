@@ -222,3 +222,61 @@ Storage::put('images', $data['image']); //ritorna il path
 <img src="{{ asset('storage/' . $post->cover_image) }}">
 
 ```
+## Auth
+
+```bash
+#in app/Providers/RouteServiceProvider.php modifico
+public const HOME = '/admin';
+
+# Se l’utente non è autenticato, sarà dirottato automaticamente verso la pagina di login.
+# Questo comportamento è modificabile nel file in app/Http/Middleware/Authenticate.php
+
+php artisan make:controller Admin/DashboardController
+# nel controller
+public function index(){
+        return view('admin.dashboard');
+    }
+
+Route::middleware(['auth', 'verified'])
+   ->name('admin.')
+   ->prefix('admin')
+   ->group(function () {
+         Route::get('/', [DashboardController::class, 'index'])
+         ->name('dashboard');
+   });
+
+....
+
+
+
+```
+## Api
+```bash
+# in config/cors.php modifico il parametro "allowed origins" da [*] a:
+'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:3000')],
+
+# nel file env inserisco questo parametro 
+APP_FRONTEND_URL=http://localhost:5174/
+
+#creo un controller api
+php artisan make controller Api/nometabellaController
+es: php artisan make controller Api/TypeController
+
+# inserisco nel controller api il link al relativo model
+
+# creo nella funzione di index o show la chiamata al database per ottenere i relativi dati
+es:
+$types = type::with(['restaurants'])->get();
+        return response()->json(
+            [
+                'success' => true,
+                'results' => $types
+            ]
+        );
+
+# in routes/api definisco la rotta e linko il controller
+es:
+Route::get('/types', [TypeController::class, 'index']);
+Route::get('/restaurants/{slug}', [RestaurantsController::class, 'show']);
+
+```
