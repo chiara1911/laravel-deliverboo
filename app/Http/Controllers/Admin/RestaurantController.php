@@ -9,6 +9,7 @@ use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
 use App\Models\Type;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -45,21 +46,39 @@ class RestaurantController extends Controller
     public function store(StoreRestaurantRequest $request)
     {
         //
-        $formData = $request->validated();
-        $slug = Str::slug($formData['name'], '-');
-        $formData['slug'] = $slug;
-        if ($request->hasFile('image')) {
-            $name = Str::slug($formData['name'], '-') . '.jpg';
-            $img_path = Storage::putFileAs('restaurants', $formData['image'], $name);
-            $formData['image'] = $img_path;
-        } else {
-            $formData['image'] = 'restaurants/restaurant-placeholder.jpg';
-        }
-        $currentUserId = Auth::id();
-        $formData['user_id'] = $currentUserId;
-        $newRestaurant = Restaurant::create($formData);
-        $newRestaurant->types()->attach($request->types);
-        return redirect()->route('admin.dishes.index');
+        // $formData = $request->validated();
+
+
+        // $formDataUser =[
+        //     'name' => $formData['name'],
+        //     'surname' => $formData['surname'],
+        //     'email' => $formData['email'],
+        // ];
+        // $newUser = User::create($formDataUser);
+
+        // $formDataRestaurant= [
+        //     'name' => $formData['restaurant_name'],
+        //     'vat' => $formData['vat'],
+        //     'address' => $formData['address'],
+        //     'user_id' => $newUser->id,
+        // ];
+        // $slug = Str::slug($formData['restaurant_name'], '-');
+        // $formDataRestaurant['slug'] = $slug;
+
+
+        // if ($request->hasFile('image')) {
+        //     $name = Str::slug($formData['restaurant_name'], '-') . '.jpg';
+        //     $img_path = Storage::putFileAs('restaurants', $formData['image'], $name);
+        //     $formDataRestaurant['image'] = $img_path;
+        // } else {
+        //     $formDataRestaurant['image'] = 'restaurants/restaurant-placeholder.jpg';
+        // }
+        // $currentUserId = Auth::id();
+        // $formData['user_id'] = $currentUserId;
+        // $newRestaurant = Restaurant::create($formDataRestaurant);
+        // $newRestaurant->types()->attach($request->types);
+
+        // return redirect()->route('admin.dishes.index');
     }
 
     /**
