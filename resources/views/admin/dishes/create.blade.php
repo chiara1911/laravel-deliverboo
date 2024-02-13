@@ -87,8 +87,7 @@
                             <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i 1 mb)</small>
                             <input type="file" id="image" name="image" value="{{ old('image')  }}"
                                 class="form-control @error('image') is-invalid @enderror" multiple accept=".jpg">
-                                <small class="invalid-feedback-max-size d-none text-danger ">Il file è superiore a 1 Mb</small>
-
+                                <div class="invalid-feedback-max-size d-none text-danger ">Il file è superiore a 1 Mb</div>
                         </div>
                     </div>
                 </div>
