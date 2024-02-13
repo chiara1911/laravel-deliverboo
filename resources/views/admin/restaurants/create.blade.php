@@ -39,9 +39,8 @@
                         <label for="vat" class="mb-2">P.Iva</label>
                         <input type="text"
                             class="form-control @error('vat') is-invalid @enderror"
-                            id="vat" name="vat"
-                            value="{{old('vat')}}"
-                            required>
+                            id="vat" name="vat" pattern="[0-9]{11}"
+                              maxlength="11" required value="{{old('vat')}}">
                         <div class="invalid-feedback">Inserisci un codice di P.Iva valido (11 cifre)</div>
                         @error('vat')
                             <div class="invalid-feedback">{{ $message }}</div>

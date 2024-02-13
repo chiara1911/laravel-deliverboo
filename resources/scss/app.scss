@@ -155,6 +155,13 @@ nav.navbar{
     }
 }
 
+.accordion-button{
+    background-color: $color-primary-hover !important;
+    color: $color-white !important;
+    &:focus{
+        box-shadow: none;
+    }
+}
 
 // ****** DISH SHOW PAGE *******
 
@@ -169,7 +176,7 @@ nav.navbar{
 
 .img-preview-box {
     width: 200px;
-  
+
     img {
         object-fit: cover;
     }

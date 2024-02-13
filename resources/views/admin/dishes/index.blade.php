@@ -56,43 +56,63 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
 
+
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Visualizza i piatti cancellati
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                @if ($deletedDishes->count() > 0)
+                                    <div class="table-card card">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome Piatto</th>
+                                                    <th class="text-center">Ripristina</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($deletedDishes as $dish)
+                                                    <tr>
+                                                        <td>
+                                                            <p >
+                                                                {{ $dish->name }}
+                                                            </p>
+                                                        </td>
+                                                    <td class="text-center">
+                                                        <form action="{{ route('admin.dishes.restore', $dish->id) }}" method="POST">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-restore restore-btn ms-3"
+                                                                data-item-title="{{ $dish->name }}">
+                                                                <i class="fa-solid fa-rotate-left"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                @else
+                                    <p class="p-2">Non ci sono piatti cancellati</p>
+                                @endif
+
+                            </div>
+                        </div>
 
                     </div>
-                    <div class="table-card card">
-                        <div class="card-header">
-                            Tutti i piatti cancellati
-                        </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nome Piatto</th>
-                                    <th class="text-center">Ripristina</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($deletedDishes as $dish)
-                                    <tr>
-                                        <td>
-                                            <p >
-                                                {{ $dish->name }}
-                                            </p>
-                                        </td>
-                                       <td class="text-center">
-                                        <form action="{{ route('admin.dishes.restore', $dish->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-restore restore-btn ms-3"
-                                                data-item-title="{{ $dish->name }}">
-                                                <i class="fa-solid fa-rotate-left"></i>
-                                            </button>
-                                        </form>
-                                       </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                     </div>
-                </div>
+
+
+
+
+
             </div>
         </div>
 

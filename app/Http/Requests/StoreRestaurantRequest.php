@@ -24,8 +24,8 @@ class StoreRestaurantRequest extends FormRequest
         return [
             //
             'name' => ['required', 'max:255'],
-            'vat' => ['required', 'max:11', 'unique:restaurants'],
             'image' => ['image', 'max:4000', 'mimes:jpg'],
+            'vat' => ['required','min:11', 'max:11', 'unique:restaurants'],
             'address' => ['required', 'max:255'],
             'types'=> ['required', 'exists:types,id'],
         ];
@@ -38,7 +38,8 @@ class StoreRestaurantRequest extends FormRequest
             'name.max' => 'Il nome del tuo ristorante deve avere massimo :max caratteri',
             'vat.unique' => 'Il numero della P.Iva è già registrato nel nostro database.',
             'vat.required' =>'Il numero della P.Iva è obbligatorio',
-            'vat.max' =>'Il numero della P.Iva deve avere massimo :max caratteri',
+            'vat.max' =>'Il numero della P.Iva deve avere :max caratteri',
+            'vat.min' =>'Il numero della P.Iva deve avere :min caratteri',
             'image.required' => 'L\' immagine è obbligatoria',
             'image.image' => 'Il file deve essere di tipo immagine',
             'image.max' => 'Il file deve pesare massimo 4mb',
