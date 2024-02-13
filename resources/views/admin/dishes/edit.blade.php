@@ -64,19 +64,18 @@
             </div>
 
             {{-- Immagine --}}
-            <div class="mb-3>
-                                    <label for="image" class="mb-2">Immagine</label>
+            <div class="mb-3">
+                <label for="image" class="mb-2">Immagine</label>
                 <div class="d-flex mb-4">
                     <div class="me-3 img-preview-box">
-                        <img id="uploaded" src="https://via.placeholder.com/200x110" width="100">
+                        <img id="uploaded" src="@if($dish->image) {{ asset('storage/'.$dish->image )}} @else http://via.placeholder.com/300x200 @endif" width="100">
                     </div>
                     <div class="mb-3">
+                        <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i 1 mb)</small>
                         <input class="form-control " name="image" type="file" id="image"
                             value="{{ old('image') }}">
-                        @error('image')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                            <small class="invalid-feedback-max-size d-none text-danger ">Il file è superiore a 1 Mb</small>
+                        </div>
                 </div>
             </div>
 
