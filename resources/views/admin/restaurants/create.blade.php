@@ -75,7 +75,7 @@
                                     </label>
                                 </div>
                             @endforeach
-                            <div class="invalid-feedback">Seleziona almeno una tipologia per il tuo ristorante</div>
+                            <small class="invalid-feedback-type d-none text-danger">Seleziona almeno una tipologia per il tuo ristorante</small>
                             @error('types')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
