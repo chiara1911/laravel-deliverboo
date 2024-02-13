@@ -99,12 +99,14 @@ Array.from(forms).forEach((form) => {
 
             for (let i = 0; i < checkBox.length; i++) {
                 checkBox[i].setAttribute("required", "");
+                document.querySelector('.invalid-feedback-type').classList.remove('d-none');
             }
 
             for (let i = 0; i < checkBox.length; i++) {
                 if (checkBox[i].checked) {
                     for (let i = 0; i < checkBox.length; i++) {
                         checkBox[i].removeAttribute("required", "");
+                        document.querySelector('.invalid-feedback-type').classList.add('d-none');
                     }
                 }
             }

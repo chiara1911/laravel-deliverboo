@@ -52,6 +52,8 @@ class RestaurantController extends Controller
             $name = Str::slug($formData['name'], '-') . '.jpg';
             $img_path = Storage::putFileAs('restaurants', $formData['image'], $name);
             $formData['image'] = $img_path;
+        } else {
+            $formData['image'] = 'restaurants/restaurant-placeholder.jpg';
         }
         $currentUserId = Auth::id();
         $formData['user_id'] = $currentUserId;
