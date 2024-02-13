@@ -13,6 +13,7 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="name" class="mb-2">Nome</label>
+                <span class="ms-1">*</span>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
                     required minlength="1" maxlength="200" value="{{ old('name', $dish->name) }}">
                 <div class="invalid-feedback">Inserisci un nome per il piatto</div>
@@ -22,6 +23,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="mb-2">Prezzo</label>
+                <span class="ms-1">*</span>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
                     id="price" required value="{{ old('price', $dish->price) }}">
                 <div class="invalid-feedback">Inserisci un prezzo valido</div>
@@ -31,6 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="visible">Visibile</label>
+                <span class="ms-1">*</span>
                 <div class="d-flex gap-3">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
@@ -60,6 +63,7 @@
             </div>
             <div class="mb-3">
                 <label for="ingredients" class="mb-2">Ingredienti</label>
+                <span class="ms-1">*</span>
                 <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients"
                     placeholder="Insalata, pomodoro, grana, uovo, ecc..." required cols="20" rows="3">{{ old('ingredients', $dish->ingredients) }}</textarea>
                 <div class="invalid-feedback">Inserisci almeno un ingrediente</div>
@@ -85,9 +89,9 @@
             </div>
 
 
-            <div class="mt-3">
-                <button type="submit" class="btn btn-success">Save</button>
-                <button type="reset" class="btn btn-primary">Reset</button>
+            <div class="pt-3">
+                <button type="reset" class="btn btn-warning text-light">Cancella</button>
+                <button type="submit" class="btn btn-primary me-2">Crea</button>
             </div>
         </form>
     </section>
