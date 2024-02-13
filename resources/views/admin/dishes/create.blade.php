@@ -1,7 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <section class="container">
-        <h1 class="mb-4 mt-2">Aggiungi un nuovo piatto</h1>
+        <div class="mb-4 mt-2">
+            <h1>Aggiungi un nuovo piatto</h1>
+            <small>
+                i campi obbligatori sono contrassegnati con *
+            </small>
+        </div>
         <form class="needs-validation" action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
             @if ($errors->any())
@@ -15,6 +20,7 @@
             @endif
             <div class="mb-3">
                 <label for="name" class="mb-2">Nome</label>
+                <span class="ms-1">*</span>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" required>
                 <div class="invalid-feedback">Inserisci un nome per il piatto</div>
                 @error('name')
@@ -23,6 +29,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="mb-2">Prezzo</label>
+                <span class="ms-1">*</span>
                 <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
                     id="price" value="{{ old('price') }}" step=".01" min="0" required>
                 <div class="invalid-feedback">Inserisci un prezzo valido</div>
@@ -32,6 +39,7 @@
             </div>
             <div class="mb-3">
                 <label for="visible" class="mb-2">Visibile</label>
+                <span class="ms-1">*</span>
                 <div class="d-flex gap-3">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="visible" id="visibleTrue" value="1"
@@ -58,6 +66,7 @@
             </div>
             <div class="mb-3">
                 <label for="ingredients" class="mb-2">Ingredienti</label>
+                <span class="ms-1">*</span>
                 <textarea class="form-control @error('ingredients') is-invalid @enderror" name="ingredients" id="ingredients" required placeholder="Insalata, pomodoro, grana, uovo, ecc..."
                     cols="20" rows="3">{{ old('ingredients') }}</textarea>
                 <div class="invalid-feedback">Inserisci almeno un ingrediente</div>

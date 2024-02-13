@@ -1,7 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <section class="container">
-        <h1 class="mb-4 mt-2">Modifica il tuo piatto</h1>
+        <div class="mb-4 mt-2">
+            <h1>Modifica il tuo piatto</h1>
+            <small>
+                i campi obbligatori sono contrassegnati con *
+            </small>
+        </div>
         <form class="needs-validation" action="{{ route('admin.dishes.update', $dish->id) }}" method="POST"
             enctype="multipart/form-data" class="needs-validation" novalidate>
             @csrf
