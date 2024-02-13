@@ -115,11 +115,17 @@ Array.from(forms).forEach((form) => {
             if (imgFile){
                 if (imgFile.files[0]){
                     console.log(imgFile.files[0]);
-                    if (imgFile.files[0].size > 1097152) {
+
+                    const limit = 1000;
+                    const size = imgFile.files[0].size/1024;
+                    if (size > limit) {
                         fileSize = false;
+                        imgFile.value = '';
                         // 2 MiB for bytes.
                         // alert("File size must under 1MiB!");
                         document.querySelector('.invalid-feedback-max-size').classList.remove('d-none');
+                    } else {
+                        document.querySelector('.invalid-feedback-max-size').classList.add('d-none');
                     }
                 }
             }

@@ -92,7 +92,9 @@ class DishController extends Controller
         $formData['restaurant_id'] = $restaurant;
 
         if ($request->hasFile('image')) {
-            Storage::delete($dish->image);
+            if ($dish->image) {
+                Storage::delete($dish->image);
+            }
             $name = Str::slug($formData['name'], '-') . '.jpg';
             $img_path = Storage::putFileAs('dishes', $formData['image'], $name);
             $formData['image'] = $img_path;
