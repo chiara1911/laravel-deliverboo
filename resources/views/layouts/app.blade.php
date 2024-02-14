@@ -119,7 +119,7 @@
         // validazione input immagine
         const imgFile = document.getElementById("image");
         let fileSize = true;
-        let imgValidated = false;
+        // let imgValidated = false;
 
         function imgLoaded() {
             const limit = 4000;
@@ -128,18 +128,12 @@
             if (size > limit) {
                 fileSize = false;
                 document.querySelector('#image').setCustomValidity(true);
-                !fileSize  && imgValidated ? document.querySelector('.invalid-feedback-max-size').classList.remove('d-none') : '';
             } else {
                 fileSize = true;
                 document.querySelector('#image').setCustomValidity('');
-                document.querySelector('.invalid-feedback-max-size').classList.add('d-none');
             }
         }
 
-        function imgValidate() {
-            imgValidated = true;
-            !fileSize ? document.querySelector('.invalid-feedback-max-size').classList.remove('d-none') : '';
-        }
     </script>
 </body>
 

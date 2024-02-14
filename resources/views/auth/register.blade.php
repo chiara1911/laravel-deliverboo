@@ -76,7 +76,8 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
-                                    <div class="invalid-feedback">Inserisci una Password per registrarti</div>
+                                    <div class="invalid-feedback validation-required-password">Inserisci una Password per registrarti</div>
+                                    <div class="invalid-feedback validation-min-password d-none">La password deve avere minimo 8 caratteri</div>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -167,10 +168,10 @@
                                         <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino
                                             i 4 mb)</small>
 
-                                        <input class="form-control " name="image" type="file" id="image"
+                                        <input class="form-control" name="image" type="file" id="image"
                                             value="{{ old('image') }}" onchange="imgLoaded()">
-                                        <small class="invalid-feedback-max-size text-danger d-none">Il file è superiore a 4
-                                            Mb</small>
+                                        <div class="invalid-feedback validation-max-size">Il file è superiore a 4
+                                            Mb</div>
 
                                     </div>
                                 </div>
@@ -180,7 +181,7 @@
                             <div class="pt-3">
                                 <button type="reset" class="btn btn-warning text-light">Cancella</button>
                                 <button type="submit" class="btn btn-primary me-2"
-                                    onclick="checkboxValidate(), imgValidate()">Crea</button>
+                                    onclick="checkboxValidate()">Crea</button>
                             </div>
 
                         </form>
@@ -194,15 +195,30 @@
         // validazione conferma password
         const password = document.getElementById('password');
         const passwordConfirm = document.getElementById('password-confirm');
+        const passwordRequiredValidation = document.querySelector('.validation-required-password');
+        const passwordMinValidation = document.querySelector('.validation-min-password');
 
-        password.onchange = validatePassword;
+        password.onkeyup = validatePassword;
         passwordConfirm.onkeyup = validatePassword;
 
         function validatePassword() {
+            console.log(password.value);
             if (password.value != passwordConfirm.value) {
                 passwordConfirm.setCustomValidity(true);
             } else {
                 passwordConfirm.setCustomValidity('');
+            }
+            if (password.value.length == 0) {
+                password.setCustomValidity(true);
+                passwordRequiredValidation.classList.remove('d-none');
+                passwordMinValidation.classList.add('d-none');
+            } else if (password.value.length < 8) {
+                passwordRequiredValidation.classList.add('d-none');
+                passwordMinValidation.classList.remove('d-none');
+                password.setCustomValidity(true);
+            } else {
+                passwordMinValidation.classList.add('d-none');
+                password.setCustomValidity('');
             }
         }
 

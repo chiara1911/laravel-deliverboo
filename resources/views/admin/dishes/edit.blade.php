@@ -83,7 +83,7 @@
                         <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i 4 mb)</small>
                         <input class="form-control " name="image" type="file" id="image"
                             value="{{ old('image') }}" onchange="imgLoaded()">
-                            <small class="invalid-feedback-max-size d-none text-danger ">Il file è superiore a 4 Mb</small>
+                            <div class="invalid-feedback validation-max-size">Il file è superiore a 4 Mb</div>
                         </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
 
             <div class="pt-3">
                 <button type="reset" class="btn btn-warning text-light">Cancella</button>
-                <button type="submit" class="btn btn-primary me-2" onclick="imgValidate()">Crea</button>
+                <button type="submit" class="btn btn-primary me-2">Crea</button>
             </div>
         </form>
     </section>
