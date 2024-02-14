@@ -31,7 +31,9 @@
                         <img src="{{ Vite::asset('resources/img/deliveboo-logo.png') }}" alt="Deliveboo Logo">
                     </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -47,63 +49,61 @@
                         </li> --}}
                         @guest
                         @else
-
-
-                        @if (Auth::user()->restaurant)
-                        <li class="nav-item">
-                                <a class="nav-link {{ Route::currentRouteName() == 'admin.dishes.index' ? 'active' : '' }}"
-                                    href="{{ route('admin.dishes.index') }}">
-                                    Il tuo menù
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}"
-                                    href="{{ route('admin.orders.index') }}"
-                                    >
-                                    Ordini ricevuti
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ Route::currentRouteName() == 'admin.orders.stats' ? 'active' : '' }}"
-                                    href="{{ route('admin.orders.stats') }}"
-                                    >
-                                    Statistiche ordini
-                                </a>
-                            </li>
-                @endif
-                @endguest
+                            @if (Auth::user()->restaurant)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'admin.dishes.index' ? 'active' : '' }}"
+                                        href="{{ route('admin.dishes.index') }}">
+                                        Il tuo menù
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}"
+                                        href="{{ route('admin.orders.index') }}">
+                                        Ordini ricevuti
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Route::currentRouteName() == 'admin.orders.stats' ? 'active' : '' }}"
+                                        href="{{ route('admin.orders.stats') }}">
+                                        Statistiche ordini
+                                    </a>
+                                </li>
+                            @endif
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registrati</a>
-                        </li>
-                        @endif
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">Registrati</a>
+                                </li>
+                            @endif
                         @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                {{-- <a class="dropdown-item" href="{{ url('admin') }}">{{__('Dashboard')}}</a> --}}
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                                    Logout
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    {{-- <a class="dropdown-item" href="{{ url('admin') }}">{{__('Dashboard')}}</a> --}}
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -115,7 +115,33 @@
         </main>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>
-    {{-- <script src="'/js/app.js'"></script> --}}
+    <script>
+        // validazione input immagine
+        const imgFile = document.getElementById("image");
+        let fileSize = true;
+        let imgValidated = false;
+
+        function imgLoaded() {
+            const limit = 4000;
+            const size = imgFile.files[0].size / 1024;
+
+            if (size > limit) {
+                fileSize = false;
+
+                document.querySelector('#image').setCustomValidity(true);
+                !fileSize  && imgValidated ? document.querySelector('.invalid-feedback-max-size').classList.remove('d-none') : '';
+            } else {
+                fileSize = true;
+                document.querySelector('#image').setCustomValidity('');
+                document.querySelector('.invalid-feedback-max-size').classList.add('d-none');
+            }
+        }
+
+        function imgValidate() {
+            imgValidated = true;
+            !fileSize ? document.querySelector('.invalid-feedback-max-size').classList.remove('d-none') : '';
+        }
+    </script>
 </body>
 
 </html>

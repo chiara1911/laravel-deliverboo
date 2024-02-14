@@ -131,7 +131,7 @@
                     <h6>Seleziona il Tipo di Cucina della tua Attività <span class="ms-1">*</span></h6>
                     @foreach ($types as $type)
                         <div class="form-check @error('types') is-invalid @enderror">
-                            <input type="checkbox" class="form-check-input check-type" name="types[]" value="{{$type->id}}"
+                            <input type="checkbox" class="form-check-input check-type" name="types[]" onclick="checkboxChange({{$loop->index}})" value="{{$type->id}}"
                         {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
                             <label for="types" class="form-check-label">
                             {{$type->name}}
@@ -155,8 +155,8 @@
                     <div class="mb-3">
                     <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i 4 mb)</small>
 
-                        <input class="form-control " name="image" type="file" id="image" value="{{ old('image') }}">
-                        <small class="invalid-feedback-max-size d-none text-danger ">Il file è superiore a 4 Mb</small>
+                        <input class="form-control " name="image" type="file" id="image" value="{{ old('image') }}" onchange="imgLoaded()">
+                        <small class="invalid-feedback-max-size text-danger d-none">Il file è superiore a 4 Mb</small>
 
                     </div>
                 </div>
@@ -165,7 +165,7 @@
 
                     <div class="pt-3">
                         <button type="reset" class="btn btn-warning text-light">Cancella</button>
-                        <button type="submit" class="btn btn-primary me-2">Crea</button>
+                        <button type="submit" class="btn btn-primary me-2" onclick="checkboxValidate(), imgValidate()">Crea</button>
                     </div>
 
                     </form>
@@ -174,4 +174,58 @@
         </div>
     </div>
 </div>
+
+<script>
+
+// validazione conferma password
+const password = document.getElementById('password');
+const passwordConfirm = document.getElementById('password-confirm');
+
+password.onchange = validatePassword;
+passwordConfirm.onkeyup = validatePassword;
+
+function validatePassword() {
+    if(password.value != passwordConfirm.value) {
+        passwordConfirm.setCustomValidity(true);
+    } else {
+        passwordConfirm.setCustomValidity('');
+    }
+}
+
+// validazione checkbox
+let checkbox = document.querySelectorAll(".check-type");
+let checkboxSelected = false;
+let checkboxValidated = false;
+
+
+function checkboxValidationTrue() {
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].removeAttribute("required", "");
+        checkboxValidated ? document.querySelector('.invalid-feedback-type').classList.add('d-none') : '';
+    }
+}
+
+function checkboxValidationFalse() {
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].checked ? checkboxSelected = true : '';
+        checkbox[i].setAttribute("required", "");
+        checkboxValidated ? document.querySelector('.invalid-feedback-type').classList.remove('d-none') : '';
+    }
+}
+
+function checkboxChange(index) {
+    checkbox[index].checked ? checkboxSelected = true : checkboxSelected = false;
+    checkboxSelected ? checkboxValidationTrue() : checkboxValidationFalse();
+}
+
+function checkboxValidate() {
+    checkboxValidated = true;
+    checkboxSelected ? checkboxValidationTrue() : checkboxValidationFalse();
+}
+
+
+</script>
+
 @endsection
+
+

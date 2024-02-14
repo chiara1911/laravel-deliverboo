@@ -40,8 +40,6 @@ class StoreRestaurantRequest extends FormRequest
             'vat.required' =>'Il numero della P.Iva è obbligatorio',
             'vat.max' =>'Il numero della P.Iva deve avere :max caratteri',
             'vat.min' =>'Il numero della P.Iva deve avere :min caratteri',
-            'image.required' => 'L\' immagine è obbligatoria',
-            'image.image' => 'Il file deve essere di tipo immagine',
             'image.max' => 'Il file deve pesare massimo 4mb',
             'image.mimes' => 'Il file deve essere di tipo jpg',
             'address.required' => 'L\'indirizzo è obbligatorio',

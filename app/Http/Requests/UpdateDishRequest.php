@@ -27,7 +27,7 @@ class UpdateDishRequest extends FormRequest
             'visible' => ['required', 'boolean'],
             'description' => ['nullable'],
             'ingredients' => ['required'],
-            'image' => ['nullable', 'image']
+            'image' => ['nullable', 'max:4000', 'mimes:jpg']
         ];
     }
     public function messages(): array
@@ -42,7 +42,8 @@ class UpdateDishRequest extends FormRequest
             'visible.boolean' => 'La visibilità deve essere true o false',
             'description.max' => 'La descrizione deve avere massimo :max caratteri',
             'ingredients.required' => 'Gli ingredienti sono obbligatori',
-            'image.image' => 'La immagine deve essere un immagine',
+            'image.max' => 'Il file deve pesare massimo 4mb',
+            'image.mimes' => 'Il file deve essere di tipo jpg',
         ];
     }
 }
