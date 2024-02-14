@@ -90,11 +90,28 @@ const forms = document.querySelectorAll(".needs-validation");
 //     console.log('validazione entrata');
 // });
 
+
+// validazione conferma password
+const password = document.getElementById('password');
+const passwordConfirm = document.getElementById('password-confirm');
+
+password.onchange = validatePassword;
+passwordConfirm.onkeyup = validatePassword;
+
+function validatePassword() {
+    if(password.value != passwordConfirm.value) {
+        passwordConfirm.setCustomValidity(true);
+    } else {
+        passwordConfirm.setCustomValidity('');
+    }
+}
+
 // Loop over them and prevent submission
 Array.from(forms).forEach((form) => {
     form.addEventListener(
         "submit",
         (event) => {
+            // validazione checkbox
             let checkBox = document.querySelectorAll(".check-type");
 
             for (let i = 0; i < checkBox.length; i++) {
@@ -111,6 +128,7 @@ Array.from(forms).forEach((form) => {
                 }
             }
 
+            // validazione input immagine
             const imgFile = document.getElementById("image"); // <input type="file" id="fileUpload" accept=".jpg,.png,.gif,.jpeg"/>
             let fileSize = true;
 
@@ -118,7 +136,7 @@ Array.from(forms).forEach((form) => {
                 if (imgFile.files[0]){
                     console.log(imgFile.files[0]);
 
-                    const limit = 1000;
+                    const limit = 4000;
                     const size = imgFile.files[0].size/1024;
                     if (size > limit) {
                         fileSize = false;
@@ -126,6 +144,7 @@ Array.from(forms).forEach((form) => {
                         // 2 MiB for bytes.
                         // alert("File size must under 1MiB!");
                         document.querySelector('.invalid-feedback-max-size').classList.remove('d-none');
+                        document.querySelector('#image').setCustomValidity(true);
                     } else {
                         document.querySelector('.invalid-feedback-max-size').classList.add('d-none');
                     }

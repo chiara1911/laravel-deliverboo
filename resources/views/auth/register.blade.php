@@ -10,11 +10,14 @@
 
 
                 <div class="card-body">
+                    <small class="pb-2">
+                        i campi obbligatori sono contrassegnati con *
+                    </small>
                     <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                         @csrf
 
                 <div class="mb-4 row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">Nome<span class="ms-1">*</span></label>
 
                     <div class="col-md-6">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -28,7 +31,7 @@
                 </div>
 
                 <div class="mb-4 row">
-                    <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome</label>
+                    <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome<span class="ms-1">*</span></label>
 
                     <div class="col-md-6">
                         <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
@@ -42,7 +45,7 @@
                 </div>
 
                 <div class="mb-4 row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo Email</label>
+                    <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo Email<span class="ms-1">*</span></label>
 
                     <div class="col-md-6">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -57,7 +60,7 @@
                 </div>
 
                 <div class="mb-4 row">
-                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                    <label for="password" class="col-md-4 col-form-label text-md-right">Password<span class="ms-1">*</span></label>
 
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -71,10 +74,11 @@
                 </div>
 
                 <div class="mb-4 row">
-                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma la tua Password</label>
+                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma la tua Password<span class="ms-1">*</span></label>
 
                     <div class="col-md-6">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        <div class="invalid-feedback">La password inserita non corrisponde</div>
                     </div>
                 </div>
 
@@ -82,7 +86,7 @@
 
                 {{-- Nome --}}
                 <div class="mb-3">
-                <label for="restaurant_name" class="mb-2">Nome Attività</label>
+                <label for="restaurant_name" class="mb-2">Nome Attività<span class="ms-1">*</span></label>
                 <input type="text"
                     class="form-control @error('restaurant_name') is-invalid @enderror"
                     id="restaurant_name" name="restaurant_name"
@@ -96,7 +100,7 @@
 
                 {{-- VAT --}}
                 <div class="mb-3">
-                <label for="vat" class="mb-2">P.Iva</label>
+                <label for="vat" class="mb-2">P.Iva<span class="ms-1">*</span></label>
                 <input type="text"
                     class="form-control @error('vat') is-invalid @enderror"
                     id="vat" name="vat" pattern="[0-9]{11}"
@@ -109,7 +113,7 @@
 
                 {{-- Indirizzo --}}
                 <div class="mb-3">
-                <label for="address" class="mb-2">Indirizzo</label>
+                <label for="address" class="mb-2">Indirizzo<span class="ms-1">*</span></label>
                 <input type="text"
                     class="form-control @error('address') is-invalid @enderror"
                     id="address" name="address"
@@ -124,7 +128,7 @@
                 {{-- Tipologia --}}
                 <div class="mb-3">
                 <div class="form-group">
-                    <h6>Seleziona il Tipo di Cucina della tua Attività </h6>
+                    <h6>Seleziona il Tipo di Cucina della tua Attività <span class="ms-1">*</span></h6>
                     @foreach ($types as $type)
                         <div class="form-check @error('types') is-invalid @enderror">
                             <input type="checkbox" class="form-check-input check-type" name="types[]" value="{{$type->id}}"
