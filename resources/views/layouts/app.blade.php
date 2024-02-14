@@ -127,7 +127,6 @@
 
             if (size > limit) {
                 fileSize = false;
-
                 document.querySelector('#image').setCustomValidity(true);
                 !fileSize  && imgValidated ? document.querySelector('.invalid-feedback-max-size').classList.remove('d-none') : '';
             } else {

@@ -86,7 +86,7 @@
                         <div>
                             <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i 4 mb)</small>
                             <input type="file" id="image" name="image" value="{{ old('image')  }}"
-                                class="form-control @error('image') is-invalid @enderror" multiple accept=".jpg">
+                                class="form-control @error('image') is-invalid @enderror" onchange="imgLoaded()" multiple accept=".jpg">
                                 <div class="invalid-feedback-max-size d-none text-danger ">Il file è superiore a 4 Mb</div>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
 
             <div class="pt-3">
                 <button type="reset" class="btn btn-warning text-light">Cancella</button>
-                <button type="submit" class="btn btn-primary me-2">Crea</button>
+                <button type="submit" class="btn btn-primary me-2" onclick="imgValidate()">Crea</button>
             </div>
         </form>
     </section>

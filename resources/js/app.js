@@ -78,29 +78,11 @@ if (previewImage) {
 const forms = document.querySelectorAll(".needs-validation");
 let wasValidated = false;
 
-// if (imgFile){
-//     if (imgFile.files[0]){
-//         console.log(imgFile.files[0]);
-
-//         const limit = 4000;
-//         const size = imgFile.files[0].size/1024;
-//         if (size > limit) {
-//             fileSize = false;
-//             // imgFile.value = '';
-//             document.querySelector('.invalid-feedback-max-size').classList.remove('d-none');
-//             document.querySelector('#image').setCustomValidity(true);
-//         } else {
-//             document.querySelector('.invalid-feedback-max-size').classList.add('d-none');
-//         }
-//     }
-// }
-
 // Loop over them and prevent submission
 Array.from(forms).forEach((form) => {
     form.addEventListener(
         "submit",
         (event) => {
-
 
             if (!form.checkValidity()) {
                 event.preventDefault();
