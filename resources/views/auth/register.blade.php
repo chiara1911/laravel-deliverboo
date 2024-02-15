@@ -7,18 +7,21 @@
                 <div class="card">
                     <div class="card-header bg-color-orange text-white fw-bold">Registrati</div>
                     <div class="card-body">
-                        <small class="pb-2">
-                            i campi obbligatori sono contrassegnati con *
-                        </small>
                         <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data"
                             class="needs-validation" novalidate>
                             @csrf
+
+                            <div class="mb-3">
+                                <small >
+                                    i campi obbligatori sono contrassegnati con *
+                                </small>
+                            </div>
 
                             <div class="mb-4 row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Nome<span
                                         class="ms-1">*</span></label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -35,7 +38,7 @@
                                 <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome<span
                                         class="ms-1">*</span></label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="surname" type="text"
                                         class="form-control @error('surname') is-invalid @enderror" name="surname"
                                         value="{{ old('surname') }}" required autocomplete="surname" autofocus>
@@ -52,7 +55,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">Indirizzo Email<span
                                         class="ms-1">*</span></label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
@@ -71,7 +74,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Password<span
                                         class="ms-1">*</span></label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
@@ -91,7 +94,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma la tua
                                     Password<span class="ms-1">*</span></label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                     <div class="invalid-feedback">La password inserita non corrisponde</div>
@@ -118,10 +121,10 @@
                                 <label for="vat" class="mb-2">P.Iva<span class="ms-1">*</span></label>
                                 <input type="text" class="form-control @error('vat') is-invalid @enderror" id="vat"
                                     name="vat" pattern="[0-9]{11}" maxlength="11" required value="{{ old('vat') }}">
-                                <div class="invalid-feedback">Inserisci un codice di P.Iva valido (11 cifre)</div>
-                                @error('vat')
+                                <div class="invalid-feedback">Il codice di P.Iva non è valido oppure esiste gia nei nostri daatabase</div>
+                                {{-- @error('vat')
                                     <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                @enderror --}}
                             </div>
 
                             {{-- Indirizzo --}}
@@ -150,8 +153,9 @@
                                             </label>
                                         </div>
                                     @endforeach
-                                    <small class="invalid-feedback-type d-none text-danger">Seleziona almeno una tipologia
-                                        per il tuo ristorante</small>
+                                    <small class="invalid-feedback-type d-none text-danger">
+                                        Seleziona almeno una tipologia per il tuo ristorante
+                                    </small>
                                     @error('types')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -180,7 +184,8 @@
 
                             <div class="pt-3">
                                 <button type="reset" class="btn btn-trash fw-bold">Cancella</button>
-                                <button type="submit" class="btn btn-edit fw-bold me-2">Crea</button>
+                                <button type="submit" class="btn btn-edit fw-bold me-2"
+                                    onclick="checkboxValidate()">Crea</button>
                             </div>
 
                         </form>
@@ -201,7 +206,6 @@
         passwordConfirm.onkeyup = validatePassword;
 
         function validatePassword() {
-            console.log(password.value);
             if (password.value != passwordConfirm.value) {
                 passwordConfirm.setCustomValidity(true);
             } else {
@@ -223,9 +227,8 @@
 
         // validazione checkbox
         let checkbox = document.querySelectorAll(".check-type");
-        let checkboxSelected = false;
+        let checkboxSelected = 0;
         let checkboxValidated = false;
-
 
         function checkboxValidationTrue() {
             for (let i = 0; i < checkbox.length; i++) {
@@ -244,13 +247,16 @@
         }
 
         function checkboxChange(index) {
-            checkbox[index].checked ? checkboxSelected = true : checkboxSelected = false;
+
+            checkbox[index].checked ? checkboxSelected++ : checkboxSelected--;
+            console.log(checkboxSelected)
             checkboxSelected ? checkboxValidationTrue() : checkboxValidationFalse();
         }
 
         function checkboxValidate() {
+            checkboxSelected = 0;
             for (let i = 0; i < checkbox.length; i++) {
-                checkbox[i].checked ? checkboxSelected = true : '';
+                checkbox[i].checked ? checkboxSelected++ : '';
             }
             checkboxValidated = true;
             checkboxSelected ? checkboxValidationTrue() : checkboxValidationFalse();
