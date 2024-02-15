@@ -12,7 +12,7 @@
                             i campi obbligatori sono contrassegnati con *
                         </small>
                         <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data"
-                            class="needs-validation" novalidate>
+                            class="needs-validation" novalidate >
                             @csrf
 
                             <div class="mb-4 row">
