@@ -11,10 +11,15 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
+        if(!empty($request->query('types'))) {
+            $types = $request->query('types');
+            $restaurants = Restaurant::where('type_id', $types)->with(['types'])->get();
+        } else {
+            $restaurants = Restaurant::with(['types'])->get();
+        }
 
+        // $restaurants = Restaurant::with(['types'])->get();
 
-
-        $restaurants = Restaurant::with(['types'])->get();
         return response()->json(
             [
                 'success'=>true,
