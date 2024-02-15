@@ -18,8 +18,9 @@
                             <div class="mb-3">
                                 <label for="name" class="mb-2">Nome</label>
                                 <span class="ms-1">*</span>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
-                                    required minlength="1" maxlength="200" value="{{ old('name', $dish->name) }}">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" id="name" required minlength="1" maxlength="200"
+                                    value="{{ old('name', $dish->name) }}">
                                 <div class="invalid-feedback">Inserisci un nome per il piatto</div>
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -28,8 +29,8 @@
                             <div class="mb-3">
                                 <label for="price" class="mb-2">Prezzo</label>
                                 <span class="ms-1">*</span>
-                                <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
-                                    id="price" required value="{{ old('price', $dish->price) }}">
+                                <input type="number" class="form-control @error('price') is-invalid @enderror"
+                                    name="price" id="price" required value="{{ old('price', $dish->price) }}">
                                 <div class="invalid-feedback">Inserisci un prezzo valido</div>
                                 @error('price')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -41,7 +42,8 @@
                                 <div class="d-flex gap-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
-                                            value="{{ $dish->visible }}" {{ old('visible', $dish->visible) == true ? 'checked' : '' }}
+                                            value="{{ $dish->visible }}"
+                                            {{ old('visible', $dish->visible) == true ? 'checked' : '' }}
                                             {{ $dish->visible }}>
                                         <label class="form-check-label" for="visibleFalse">
                                             Si
@@ -49,7 +51,8 @@
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="visible" id="visibleFalse"
-                                            value="{{ $dish->visible }}" {{ old('visible', $dish->visible) == false ? 'checked' : '' }}
+                                            value="{{ $dish->visible }}"
+                                            {{ old('visible', $dish->visible) == false ? 'checked' : '' }}
                                             {{ $dish->visible }}>
                                         <label class="form-check-label" for="visibleFalse">
                                             No
@@ -80,14 +83,17 @@
                                 <label for="image" class="mb-2">Immagine</label>
                                 <div class="d-flex mb-4">
                                     <div class="me-3 img-preview-box">
-                                        <img id="uploaded" src="@if($dish->image) {{ asset('storage/'.$dish->image )}} @else http://via.placeholder.com/300x200 @endif" width="100">
+                                        <img id="uploaded"
+                                            src="@if ($dish->image) {{ asset('storage/' . $dish->image) }} @else http://via.placeholder.com/300x200 @endif"
+                                            width="100">
                                     </div>
-                                                            <div class="mb-3">
-                        <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i 4 mb)</small>
-                        <input class="form-control " name="image" type="file" id="image"
-                            value="{{ old('image') }}" onchange="imgLoaded()">
-                            <div class="invalid-feedback validation-max-size">Il file è superiore a 4 Mb</div>
-                        </div>
+                                    <div class="mb-3">
+                                        <small class=" d-block  mb-3 ">(Accettiamo solo file di tipo .jpg che non superino i
+                                            4 mb)</small>
+                                        <input class="form-control " name="image" type="file" id="image"
+                                            value="{{ old('image') }}" onchange="imgLoaded()">
+                                        <div class="invalid-feedback validation-max-size">Il file è superiore a 4 Mb</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="pt-3">
