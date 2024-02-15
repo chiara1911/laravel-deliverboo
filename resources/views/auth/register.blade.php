@@ -1,18 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8 mb-4">
-            <div class="card">
-                <div class="card-header bg-color-orange text-white fw-bold">Registrati</div>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mb-4">
+                <div class="card">
+                    <div class="card-header bg-color-orange text-white fw-bold">Registrati</div>
                     <div class="card-body">
                         <small class="pb-2">
                             i campi obbligatori sono contrassegnati con *
                         </small>
                         <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data"
-                            class="needs-validation" novalidate >
+                            class="needs-validation" novalidate>
                             @csrf
 
                             <div class="mb-4 row">
@@ -76,8 +75,10 @@
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
-                                    <div class="invalid-feedback validation-required-password">Inserisci una Password per registrarti</div>
-                                    <div class="invalid-feedback validation-min-password d-none">La password deve avere minimo 8 caratteri</div>
+                                    <div class="invalid-feedback validation-required-password">Inserisci una Password per
+                                        registrarti</div>
+                                    <div class="invalid-feedback validation-min-password d-none">La password deve avere
+                                        minimo 8 caratteri</div>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -177,10 +178,10 @@
                                 </div>
                             </div>
 
-                    <div class="pt-3">
-                        <button type="reset" class="btn btn-trash fw-bold">Cancella</button>
-                        <button type="submit" class="btn btn-edit fw-bold me-2">Crea</button>
-                    </div>
+                            <div class="pt-3">
+                                <button type="reset" class="btn btn-trash fw-bold">Cancella</button>
+                                <button type="submit" class="btn btn-edit fw-bold me-2">Crea</button>
+                            </div>
 
                         </form>
                     </div>
