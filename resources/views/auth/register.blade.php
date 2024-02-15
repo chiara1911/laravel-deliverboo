@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Registrati</div>
 
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 mb-4">
+            <div class="card">
+                <div class="card-header bg-color-orange text-white fw-bold">Registrati</div>
                     <div class="card-body">
                         <small class="pb-2">
                             i campi obbligatori sono contrassegnati con *
@@ -177,12 +177,10 @@
                                 </div>
                             </div>
 
-
-                            <div class="pt-3">
-                                <button type="reset" class="btn btn-warning text-light">Cancella</button>
-                                <button type="submit" class="btn btn-primary me-2"
-                                    onclick="checkboxValidate()">Crea</button>
-                            </div>
+                    <div class="pt-3">
+                        <button type="reset" class="btn btn-trash fw-bold">Cancella</button>
+                        <button type="submit" class="btn btn-edit fw-bold me-2">Crea</button>
+                    </div>
 
                         </form>
                     </div>

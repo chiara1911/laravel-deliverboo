@@ -263,7 +263,7 @@ Route::middleware(['auth', 'verified'])
 'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:3000')],
 
 # nel file env inserisco questo parametro
-APP_FRONTEND_URL=http://localhost:5174/
+APP_FRONTEND_URL=http://localhost:5174
 
 #creo un controller api
 php artisan make controller Api/nometabellaController

@@ -27,7 +27,7 @@ class DishController extends Controller
         $restaurantId = $restaurant->id;
         $dishes = Dish::where('restaurant_id', $restaurantId)->orderBy('name')->get();
         $deletedDishes = Dish::where('restaurant_id', $restaurantId)->onlyTrashed()->get();
-// dd($deletedDishes);
+        // dd($deletedDishes);
         return view('admin.dishes.index', compact('dishes', 'deletedDishes', 'restaurant'));
     }
 
@@ -69,6 +69,11 @@ class DishController extends Controller
     public function show(Dish $dish)
     {
         //
+        $currentUser = Auth::user()->id;
+        $dishRestaurant = $dish->restaurant_id;
+        if ($currentUser != $dishRestaurant) {
+            abort('404');
+        }
         return view('admin.dishes.show', compact('dish'));
     }
 
@@ -77,6 +82,11 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        $currentUser = Auth::user()->id;
+        $dishRestaurant = $dish->restaurant_id;
+        if ($currentUser != $dishRestaurant) {
+            abort('404');
+        }
         // $restaurant = Auth::user()->restaurant->id;
         return view('admin.dishes.edit', compact('dish'));
     }
@@ -118,7 +128,7 @@ class DishController extends Controller
     }
     public function restore($id)
     {
-        $dish= Dish::withTrashed()->find($id);
+        $dish = Dish::withTrashed()->find($id);
         $dish->restore();
         return to_route('admin.dishes.index')->with('message', "Il piatto '$dish->name' è stato ripristinato");
 

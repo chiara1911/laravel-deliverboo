@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header bg-color-orange text-white fw-bold">Accedi</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
@@ -53,12 +53,12 @@
 
                             <div class="mb-4 row">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-edit fw-bold">
                                         Effettua il Login
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="ms-3" href="{{ route('password.request') }}">
                                             Hai dimenticato la tua Password ?
                                         </a>
                                     @endif
