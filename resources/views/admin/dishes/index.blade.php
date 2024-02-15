@@ -12,12 +12,12 @@
             @endif
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3 class="">Lista dei Piatti</h3>
-                <a href="{{ route('admin.dishes.create') }}" class="btn btn-edit">Aggiungi Piatto</a>
+                <a href="{{ route('admin.dishes.create') }}" class="btn btn-edit fw-bold">Aggiungi Piatto</a>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="table-card card mb-5">
-                        <div class="card-header">
+                        <div class="card-header fw-bold">
                             Tutti i piatti
                         </div>
                         <table class="table">
@@ -62,7 +62,7 @@
                     <div class="accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Visualizza i piatti cancellati
                                 </button>
                             </h2>
@@ -130,8 +130,9 @@
                     <p>Sei sicur* di voler eliminare <span id="modal-item-title"></span>? <br> Il piatto verrà rimosso dal tuo menù</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-edit" data-bs-dismiss="modal">Si</button>
-                    <button type="button" class="btn btn-trash">No</button>
+                    <button type="button" class="btn btn-trash fw-bold">Annulla</button>
+                    <button type="button" class="btn btn-edit fw-bold" data-bs-dismiss="modal">Procedi</button>
+
                 </div>
             </div>
         </div>
@@ -149,8 +150,8 @@
                     <p>Sei sicur* di voler ripristinare <span id="modal-item-title"></span>? <br> Il piatto verrà aggiunto di nuovo al tuo menù</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-edit" data-bs-dismiss="modal">Si</button>
-                    <button type="button" class="btn btn-trash">No</button>
+                    <button type="button" class="btn btn-trash fw-bold">Annulla</button>
+                    <button type="button" class="btn btn-edit fw-bold" data-bs-dismiss="modal">Procedi</button>
                 </div>
             </div>
         </div>
