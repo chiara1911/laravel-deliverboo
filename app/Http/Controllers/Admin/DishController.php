@@ -69,9 +69,10 @@ class DishController extends Controller
     public function show(Dish $dish)
     {
         //
+
         $currentUser = Auth::user()->id;
-        $dishRestaurant = $dish->restaurant_id;
-        if ($currentUser != $dishRestaurant) {
+        $dishUser = $dish->restaurant->user_id;
+        if ($currentUser != $dishUser) {
             abort('404');
         }
         return view('admin.dishes.show', compact('dish'));

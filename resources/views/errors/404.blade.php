@@ -4,7 +4,7 @@
     <section>
 
         <div class="container">
-            <div class="mt-4">
+            <div class="my-4">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <h2 class="fw-bold fs-1">Oops!</h2>
                     <p class="fs-5 ">Non abbiamo trovato ciò che stai cercando.</p>
