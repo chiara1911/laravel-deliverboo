@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('partials.hero')
+    @include('partials.hero')
 
     <section>
         <div id="menu" class="container">
@@ -37,8 +37,7 @@
                                             </a>
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.dishes.edit', $dish->id) }}"
-                                                class="btn btn-edit">
+                                            <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-edit">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </td>
@@ -59,11 +58,12 @@
                     </div>
 
 
-                    <div class="accordion">
+                    <div class="accordion mb-5">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Visualizza i piatti cancellati
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Visualizza i piatti cancellati
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -81,25 +81,26 @@
                                                 @foreach ($deletedDishes as $dish)
                                                     <tr>
                                                         <td>
-                                                            <p >
+                                                            <p>
                                                                 {{ $dish->name }}
                                                             </p>
                                                         </td>
-                                                    <td class="text-center">
-                                                        <form action="{{ route('admin.dishes.restore', $dish->id) }}" method="POST">
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-restore restore-btn ms-3"
-                                                                data-item-title="{{ $dish->name }}">
-                                                                <i class="fa-solid fa-rotate-left"></i>
-                                                            </button>
-                                                        </form>
-                                                    </td>
+                                                        <td class="text-center">
+                                                            <form action="{{ route('admin.dishes.restore', $dish->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                <button type="submit"
+                                                                    class="btn btn-restore restore-btn ms-3"
+                                                                    data-item-title="{{ $dish->name }}">
+                                                                    <i class="fa-solid fa-rotate-left"></i>
+                                                                </button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
                                     </div>
-
                                 @else
                                     <p class="p-2">Non ci sono piatti cancellati</p>
                                 @endif
@@ -113,8 +114,8 @@
 
 
 
+                </div>
             </div>
-        </div>
 
     </section>
 
@@ -127,7 +128,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Sei sicur* di voler eliminare <span id="modal-item-title"></span>? <br> Il piatto verrà rimosso dal tuo menù</p>
+                    <p>Sei sicur* di voler eliminare <span id="modal-item-title"></span>? <br> Il piatto verrà rimosso dal
+                        tuo menù</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-trash fw-bold">Annulla</button>
@@ -138,8 +140,8 @@
         </div>
     </div>
 
-     <!--Restore Modal -->
-     <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
+    <!--Restore Modal -->
+    <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -147,7 +149,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Sei sicur* di voler ripristinare <span id="modal-item-title"></span>? <br> Il piatto verrà aggiunto di nuovo al tuo menù</p>
+                    <p>Sei sicur* di voler ripristinare <span id="modal-item-title"></span>? <br> Il piatto verrà aggiunto
+                        di nuovo al tuo menù</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-trash fw-bold">Annulla</button>
