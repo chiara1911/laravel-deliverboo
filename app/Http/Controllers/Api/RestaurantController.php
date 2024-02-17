@@ -12,15 +12,18 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
-                
+
         if(!empty($request->query('types'))) {
-            $checkedTypes = $request->query('types'); 
+            $checkedTypes = $request->query('types');
             $restaurants = Restaurant::with('types')->whereHas('types', function ($q) use ($checkedTypes) {
-                $q->whereIn('types.id', $checkedTypes);              
+                $q->whereIn('types.id', $checkedTypes);
             })->get();
-        } else {
+        } elseif(!empty($request->query('search'))) {
+            $search = $request->query('search');
+            $restaurants = Restaurant::with(['types'])->where('name', 'like', '%'.$search.'%')->get();
+        }else {
             $restaurants = Restaurant::with(['types'])->get();
-        }       
+        }
 
         return response()->json(
             [
