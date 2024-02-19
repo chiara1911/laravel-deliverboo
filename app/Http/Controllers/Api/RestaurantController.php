@@ -14,10 +14,20 @@ class RestaurantController extends Controller
     {
 
         if(!empty($request->query('types'))) {
-            $checkedTypes = $request->query('types');
-            $restaurants = Restaurant::with('types')->whereHas('types', function ($q) use ($checkedTypes) {
-                $q->whereIn('types.id', $checkedTypes);
-            })->get();
+            $types = $request->query('types');
+
+            $restaurants = Restaurant::with('types')->whereHas('types', function ($query) use ($types) {
+                // foreach ($types as $type) {
+                    // $query->whereIn('type_id', $types);
+                // }
+                $query->whereIn('type_id', $types);
+            }, '=', count($types))->get();
+
+            // $checkedTypes = $request->query('types');
+            // $restaurants = Restaurant::with('types')->whereHas('types', function ($q) use ($checkedTypes) {
+            //     $q->whereIn('types.id', $checkedTypes);
+
+            // })->get();
         } elseif(!empty($request->query('search'))) {
             $search = $request->query('search');
             $restaurants = Restaurant::with(['types'])->where('name', 'like', '%'.$search.'%')->get();
