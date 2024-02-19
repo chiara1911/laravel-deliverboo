@@ -23,6 +23,7 @@ class RestaurantController extends Controller
                 $query->whereIn('type_id', $types);
             }, '=', count($types))->get();
 
+            // $checkedTypes = $request->query('types');
             // $restaurants = Restaurant::with('types')->whereHas('types', function ($q) use ($checkedTypes) {
             //     $q->whereIn('types.id', $checkedTypes);
 
