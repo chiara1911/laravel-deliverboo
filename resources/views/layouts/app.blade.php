@@ -24,11 +24,11 @@
 
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid px-4 py-2">
 
                 <div class="logo-wrapper me-2">
-                    <a href="{{ route('home') }}">
-                        <img src="{{ Vite::asset('resources/img/deliveboo-logo.png') }}" alt="Deliveboo Logo">
+                    <a href="http://localhost:5174/">
+                        <img id="logo" src="{{ Vite::asset('resources/img/deliveboo-logo.png') }}" alt="Deliveboo Logo">
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -93,7 +93,7 @@
                                 </a>
 
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="http://localhost:5174/">Torna alla home</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

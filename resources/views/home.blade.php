@@ -1,40 +1,47 @@
 @extends('layouts.app')
 @section('content')
-    <section class="container">
+<section class="bg-color-yellow">
+
         @guest
-            <div class="text-center">
-                <h1>
-                    Benvenuto in Deliverboo
-                </h1>
-                <p>
-                    Per cominciare, accedi o registrati.
-                </p>
+            <div class="container">
+                <div class="text-center py-5">
+                    <h1 class="color-secondary fw-bold">
+                        Benvenuto in Deliveboo!
+                    </h1>
+                    <p class="fs-4">
+                        Per cominciare,
+                        <a href="{{ route('login') }}">accedi</a>
+                         o <a href="{{ route('register') }}">registrati</a>.
+                    </p>
+                </div>
             </div>
         @else
-            <div class="text-center">
-                <h1>
-                    Ciao {{ Auth::user()->name }}, Benvenuto/a in Deliverboo.
-                </h1>
-                @if (Auth::user()->restaurant)
-                @php
-                    $restaurant = Auth::user()->restaurant;
-                @endphp
-                {{-- <div class="card">
-
-                    <h5>{{$restaurant->name}}</h5>
-                </div> --}}
+            {{-- @include('partials.hero') --}}
+            <div class="container">
+                <div class="text-center py-5">
+                    <h1 class="fw-bold mb-3">
+                        Ciao <span class="color-tertiary-hover">{{ Auth::user()->name }}</span>, Benvenuto/a in Deliverboo!
+                    </h1>
+                    <p class="fs-4">Inizia subito a scoprire tutte le funzionalità a te riservate.</p>
+                    @if (Auth::user()->restaurant)
+                        @php
+                            $restaurant = Auth::user()->restaurant;
+                        @endphp
                     @else
-                    <p>
-                        Sei un nuovo utente ?
-                    </p>
-                    <a href="{{route('admin.restaurants.create')}}">
-                        <button class="btn btn-primary rounded-3 mx-4 ">
-                            Aggiungi il tuo ristorante
-                        </button>
-                    </a>
-                @endif
-
+                        {{-- <p>
+                            Sei un nuovo utente ?
+                        </p>
+                        <a href="{{route('admin.restaurants.create')}}">
+                            <button class="btn btn-primary rounded-3 mx-4 ">
+                                Aggiungi il tuo ristorante
+                            </button>
+                        </a> --}}
+                    @endif
+                </div>
             </div>
         @endguest
-    </section>
+    <img src="{{ Vite::asset('resources/img/wave-white.png') }}" alt="bg-wave">
+
+</section>
+
 @endsection
