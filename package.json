@@ -15,6 +15,7 @@
         "@fortawesome/fontawesome-free": "^6.5.1",
         "bootstrap": "^5.3.2",
         "chart.js": "^4.4.1",
-        "sass": "^1.69.7"
+        "sass": "^1.69.7",
+        "vue-braintree": "^2.1.0"
     }
 }
