@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Braintree\Gateway;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,5 +21,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        $this->app->singleton(Gateway::class, function ($app) { 
+            return new Gateway(
+                [
+                    'environment' =>'sandbox',
+                    'merchantId' => '3c588sqhrj2cjxx2',
+                    'publicKey' => 'jmr9mc9knjq8857p',
+                    'privateKey' => '1d5e4738d63153a152aac65676cd90fc'
+                ]
+            );
+        });
+      
     }
 }
