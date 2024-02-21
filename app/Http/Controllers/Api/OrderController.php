@@ -20,26 +20,27 @@ class OrderController extends Controller
         return response()->json($data, 200);
     }
 
-    public function payment(Request $request, Gateway $gateway){
-        $result= $gateway->transaction()->sale([
-            // 'amount' => $request->amount,
-            'paymentMethodNonce' => $request->nonce,
-            'options'=>[
-                'submitForSettlement'=>true
+    public function payment(Request $request, Gateway $gateway)
+    {
+        $result = $gateway->transaction()->sale([
+            'amount' => $request->amount,
+            'paymentMethodNonce' => $request->paymentMethodNonce,
+            'options' => [
+                'submitForSettlement' => true
             ],
         ]);
-        if ($result->success){
-            $data =[
-                'success'=>true,
-                'message'=> "Transazione avvenuta con successo",
+        if ($result->success) {
+            $data = [
+                'success' => true,
+                'message' => "Transazione avvenuta con successo",
             ];
-            return response ()->json($data,200);
+            return response()->json($data, 200);
         } else {
-            $data =[
-                'success'=>false,
-                'message'=> "Transazione fallita",
+            $data = [
+                'success' => false,
+                'message' => $result->message,
             ];
-            return response ()->json($data, 401);
+            return response()->json($data, 401);
         }
     }
 
