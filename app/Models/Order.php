@@ -11,7 +11,7 @@ class Order extends Model
     protected $fillable = ['name', 'surname', 'email', 'address', 'phone', 'total_price'];
     public function dishes()
     {
-        return $this->belongsToMany(Dish::class);
+        return $this->belongsToMany(Dish::class)->withPivot('quantity')->withTimestamps();
     }
     use HasFactory;
 }

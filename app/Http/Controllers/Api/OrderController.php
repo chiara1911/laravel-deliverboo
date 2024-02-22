@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Dish;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 use Illuminate\Support\Facades\Validator;
@@ -67,6 +68,13 @@ class OrderController extends Controller
         $newOrder = new Order();
         $newOrder->fill($data);
         $newOrder->save();
+
+        foreach ($data['dishes'] as $dish) {
+
+            $newOrder->dishes()->attach($dish['dish_id'], ['quantity' => $dish['quantity']]);
+        }
+
+
 
         // Mail::to('info@boolfolio.com')->send(new NewContact($newLead));
 
