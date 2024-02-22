@@ -81,7 +81,12 @@ class OrderController extends Controller
     {
         $restaurant = Auth::user()->restaurant;
 
-        $orders = Order::all();
+        $restaurant_id = Auth::user()->restaurant->id;
+        // $dishes = Dish::where('restaurant_id', $restaurant_id)->pluck('id')->toArray();
+        $orders = Order::whereHas('dishes', function ($query) use ($restaurant_id) {
+            $query->where('restaurant_id', $restaurant_id);
+        })->orderByDesc('created_at')->get();
+
         return view("admin.orders.stats", compact("orders", "restaurant"));
     }
 }
