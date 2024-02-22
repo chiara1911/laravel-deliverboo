@@ -43,18 +43,16 @@
                                     <div class="d-flex gap-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="visible" id="visibleTrue"
-                                                value="{{ $dish->visible }}"
-                                                {{ old('visible', $dish->visible) == true ? 'checked' : '' }}
-                                                {{ $dish->visible }}>
-                                            <label class="form-check-label" for="visibleFalse">
+                                                value="1"
+                                                {{ old('visible', $dish->visible) == true ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="visibleTrue">
                                                 Si
                                             </label>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="visible" id="visibleFalse"
-                                                value="{{ $dish->visible }}"
-                                                {{ old('visible', $dish->visible) == false ? 'checked' : '' }}
-                                                {{ $dish->visible }}>
+                                                value="0"
+                                                {{ old('visible', $dish->visible) == false ? 'checked' : '' }}>
                                             <label class="form-check-label" for="visibleFalse">
                                                 No
                                             </label>
@@ -98,8 +96,8 @@
                                     </div>
                                 </div>
                                 <div class="pt-3">
-                                    <button type="reset" class="btn btn-trash fw-bold">Cancella</button>
-                                    <button type="submit" class="btn btn-edit fw-bold">Crea</button>
+                                    <button type="reset" class="btn btn-trash fw-bold">Resetta</button>
+                                    <button type="submit" class="btn btn-edit fw-bold">Modifica</button>
                                 </div>
                             </form>
                         </div>

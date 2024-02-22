@@ -56,6 +56,9 @@ class DishController extends Controller
             $img_path = Storage::putFileAs('dishes', $formData['image'], $name);
             $formData['image'] = $img_path;
         }
+        else{
+            $formData['image'] = 'dishes/dish-placeholder.jpg';
+        }
 
         $newDish = Dish::create($formData);
 
@@ -88,7 +91,6 @@ class DishController extends Controller
         if ($currentUser != $dishUser) {
             abort('404');
         }
-        // $restaurant = Auth::user()->restaurant->id;
         return view('admin.dishes.edit', compact('dish'));
     }
 

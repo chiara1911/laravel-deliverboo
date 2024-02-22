@@ -35,6 +35,14 @@
                         <p class="ps-2">€ {{ $dish->price }}</p>
                     </div>
                     <div class="mb-4">
+                        <h4 class="dish-section-title">Visibile</h4>
+                        @if (!$dish->visible)
+                        <p class="ps-2 text-danger">No</p>
+                        @else
+                        <p class=" ps-2">Si</p>
+                        @endif
+                    </div>
+                    <div class="mb-4">
                         <h4 class="dish-section-title">Descrizione</h4>
                         @if ($dish->description)
                             <p class="ps-2">{{ $dish->description }}</p>
