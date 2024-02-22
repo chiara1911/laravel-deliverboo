@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
+use App\Models\Dish;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,9 +18,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-
         $restaurant = Auth::user()->restaurant;
-        $orders = Order::OrderByDesc('created_at')->get();
+
+        $restaurant_id = Auth::user()->restaurant->id;
+        // $dishes = Dish::where('restaurant_id', $restaurant_id)->pluck('id')->toArray();
+        $orders = Order::whereHas('dishes', function ($query) use ($restaurant_id) {
+            $query->where('restaurant_id', $restaurant_id);
+        })->orderByDesc('created_at')->get();
+
         return view("admin.orders.index", compact("orders", "restaurant"));
     }
 

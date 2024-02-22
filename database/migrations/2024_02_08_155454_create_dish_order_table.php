@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->foreign('dish_id')->references('id')->on('dishes')->cascadeOnDelete();
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
