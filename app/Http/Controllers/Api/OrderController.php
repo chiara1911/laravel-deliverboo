@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -44,5 +46,34 @@ class OrderController extends Controller
         }
     }
 
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        $validator = Validator::make($data, [
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'phone' => 'required',
+        ]);
 
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $newOrder = new Order();
+        $newOrder->fill($data);
+        $newOrder->save();
+
+        // Mail::to('info@boolfolio.com')->send(new NewContact($newLead));
+
+        return response()->json([
+            'success' => true
+        ]);
+
+
+    }
 }
