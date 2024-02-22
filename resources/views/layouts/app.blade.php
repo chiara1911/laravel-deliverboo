@@ -116,7 +116,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ mix('/js/app.js') }}"></script>
+    {{-- <script src="{{ mix('/js/app.js') }}"></script> --}}
     <script>
         // validazione input immagine
         const imgFile = document.getElementById("image");

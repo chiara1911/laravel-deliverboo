@@ -23,19 +23,19 @@
         console.log(data);
         new Chart(myChart, {
             type: 'line',
-         
+
             data: {
-                labels: data.map(row => row.created_at),
+                labels: data.map(row => row.months),
                 datasets: [{
-                    label: 'Guadagni',
-                    data: data.map(row => row.total_price),
-                   
+                    label: 'Numero ordini per mese',
+                    data: data.map(row => row.orders),
+
                     borderColor: 'pink',
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                             
+
                 }]
             },
-            
+
         })
     </script>
 @endsection
