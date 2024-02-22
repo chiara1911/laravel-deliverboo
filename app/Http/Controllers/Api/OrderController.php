@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AdminMail;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Order;
 use App\Models\Dish;
 use Illuminate\Http\Request;
@@ -74,9 +76,7 @@ class OrderController extends Controller
             $newOrder->dishes()->attach($dish['dish_id'], ['quantity' => $dish['quantity']]);
         }
 
-
-
-        // Mail::to('info@boolfolio.com')->send(new NewContact($newLead));
+        Mail::to('admin@example.com')->send(new AdminMail($newOrder));
 
         return response()->json([
             'success' => true
