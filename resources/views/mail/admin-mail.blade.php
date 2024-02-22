@@ -3,7 +3,7 @@
         Nuovo Ordine!
     </h1>
     <p>
-       nuovo ordine ricevuto, ecco i dati:
+       Hai ricevuto un nuovo ordine ricevuto, ecco i dati:
        <ul>
            @foreach ($adminMail->dishes as $dish)
                <li>
@@ -13,7 +13,7 @@
        </ul>
     </p>
     <p>
-       Dati dell'utente
+       Dati dell'utente:
        <ul>
         <li>
            nome: {{ $adminMail->name }} {{ $adminMail->surname }}
