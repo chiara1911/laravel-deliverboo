@@ -52,7 +52,13 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $restaurant = Auth::user()->restaurant;
+        $currentUser = Auth::user()->id;
+        // $orderUser = $order->dish->restaurant->user_id;
+        // if ($currentUser != $orderUser) {
+        //     abort('404');
+        // }
+        return view('admin.orders.show', compact('order', 'restaurant'));
     }
 
     /**
