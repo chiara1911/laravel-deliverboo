@@ -77,6 +77,84 @@
       "surname": "Barbieri",
       "email": "paolo.barbieri@example.com",
       "password": "paolo12345"
+    },
+    {
+      "name": "Anna",
+      "surname": "Rossi",
+      "email": "anna.rossi@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Giulia",
+      "surname": "Regina",
+      "email": "giuliaregina@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Rosalia",
+      "surname": "Ricci",
+      "email": "rosa.ricci1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Chiara",
+      "surname": "Cesari",
+      "email": "chiara.boom1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Riccardo",
+      "surname": "Potalivo",
+      "email": "nongiocoaigiochi1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Erica",
+      "surname": "Ostini",
+      "email": "dammilaps51@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Daniele",
+      "surname": "Giuntoli",
+      "email": "bastardino1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Stefano",
+      "surname": "Tutor",
+      "email": "tutortutor1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Php Artisan",
+      "surname": "Make Fresh",
+      "email": "phpartisanmakefresh1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Annalisa",
+      "surname": "Ciaone",
+      "email": "chiaraèilmiogithub1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Clelia",
+      "surname": "Fradella",
+      "email": "klelia1@example.com",
+      "password": "12345678"
+    },
+    {
+      "name": "Anna",
+      "surname": "Cane",
+      "email": "annacane1@example.com",
+      "password": "password2024"
+    },
+    {
+      "name": "Paolo",
+      "surname": "Barbieri",
+      "email": "paolo.barbieri1@example.com",
+      "password": "paolo12345"
     }
   ]
 
