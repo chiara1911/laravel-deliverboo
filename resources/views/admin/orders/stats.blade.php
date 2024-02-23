@@ -8,6 +8,7 @@
                 <h3 class="mb-3 text-center fw-bold">Statistiche ordini</h3>
                 <div class="row">
                     <canvas id="myChart" class="col-12 col-lg-6"></canvas>
+                    <canvas id="secondChart" class="col-12 col-lg-6"></canvas>
                 </div>
             </div>
         </div>
@@ -82,6 +83,20 @@
                 }
             },
 
+        })
+
+        const secondChart = document.getElementById('secondChart');
+        const dataCount = @json($orders_month);
+        console.log(dataCount);
+        new Chart(secondChart, {
+            type: 'doughnut',
+            data: {
+                labels: dataCount.map(row => row.current_month),
+                datasets: [{
+                    data: dataCount.map(row => row.current_earnings),
+                    label: 'Guadagni al mese',
+                }]
+            }
         })
     </script>
 @endsection
