@@ -35,7 +35,7 @@ class OrderSeeder extends Seeder
             // $newOrder->dishes()->sync($dishes->pluck('id')->random(1));
             // $newOrder->dishes()->sync($dishes->pluck('id')->random(1));
             $randomDishId = $dishes->pluck('id')->random(1)->first();
-            $newOrder->dishes()->sync([$randomDishId => ['quantity' => rand(1, 10)]]);
+            $newOrder->dishes()->sync([$randomDishId => ['quantity' => rand(1, 4)]]);
 
         }
     }
