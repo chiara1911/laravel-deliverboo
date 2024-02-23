@@ -6,8 +6,8 @@
         <div class="container py-5">
             <div class="card border-0">
                 <h3 class="mb-3 text-center fw-bold">Statistiche ordini</h3>
-                <div style="width: 600px; margin: auto;">
-                    <canvas id="myChart"></canvas>
+                <div class="row">
+                    <canvas id="myChart" class="col-12 col-lg-6"></canvas>
                 </div>
             </div>
         </div>
@@ -21,14 +21,13 @@
         console.log(data);
         new Chart(myChart, {
             type: 'line',
-
             data: {
                 labels: data.map(row => row.months),
                 datasets: [{
-                    label: 'Guadagni al mese',
                     data: data.map(row => row.earnings),
+                    label: 'Guadagni al mese',
+                    borderColor: 'rgba(255, 99, 132, 0.5)',
                     fill: false,
-                    borderColor: 'pink',
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     tension: 0.2
 
@@ -36,17 +35,48 @@
 
             },
             options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            font: {
+                                size: 16
+                            }
+                        }
+                    }
+                },
                 scales: {
                     x: {
                         title: {
                             display: true,
-                            text: 'Mesi'
+                            text: 'Mesi',
+                            font: {
+                                size: 16,
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            },
+                            color: 'rgb(255, 99, 132)'
                         }
                     },
                     y: {
                         title: {
                             display: true,
-                            text: 'Guadagni'
+                            text: 'Guadagni in euro',
+                            font: {
+                                size: 16,
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            },
+                            color: 'rgb(255, 99, 132)'
+                        },
+                        ticks: {
+                            callback: function(value, index, ticks) {
+                                return value + '€';
+                            }
                         }
                     }
                 }

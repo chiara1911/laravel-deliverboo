@@ -84,7 +84,7 @@ class OrderController extends Controller
         $restaurant = Auth::user()->restaurant;
 
         $restaurant_id = Auth::user()->restaurant->id;
-        $months = range(1, 12);
+        $months = array(9,10,11,12,1,2,3);
         $current_year = Carbon::now()->year;
 
 
@@ -95,7 +95,7 @@ class OrderController extends Controller
             ->whereHas('dishes', function ($query) use ($restaurant_id) {
                 $query->where('restaurant_id', $restaurant_id);
             })
-            ->whereYear('created_at', $current_year)
+            ->whereYear('created_at', '<=', $current_year)
             ->groupBy(DB::raw('MONTH(`created_at`)'))
             ->orderBy(DB::raw('MONTH(`created_at`)'))
             ->get();
@@ -109,7 +109,7 @@ class OrderController extends Controller
             ->whereHas('dishes', function ($query) use ($restaurant_id) {
                 $query->where('restaurant_id', $restaurant_id);
             })
-            ->whereYear('created_at', $current_year)
+            ->whereYear('created_at', '<=',$current_year)
             ->groupBy(DB::raw('MONTH(`created_at`)'))
             ->orderBy(DB::raw('MONTH(`created_at`)'))
             ->get()
