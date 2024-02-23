@@ -86,7 +86,6 @@ class OrderController extends Controller
         $restaurant_id = Auth::user()->restaurant->id;
         $months = array(9, 10, 11, 12, 1, 2, 3);
         $current_year = Carbon::now()->year;
-        $current_month = array(2);
 
         $orders_per_month = Order::select([
             DB::raw('MONTH(`created_at`) as months'),
@@ -125,42 +124,50 @@ class OrderController extends Controller
         }, $months);
 
 
-
         $orders_current_month = Order::select([
-            DB::raw('MONTH(`created_at`) as current_month'),
-            DB::raw('SUM(`total_price`) as orders')
+            DB::raw('WEEK(`created_at`) as current_week'),
+            DB::raw('SUM(total_price) as current_earnings')
         ])
             ->whereHas('dishes', function ($query) use ($restaurant_id) {
                 $query->where('restaurant_id', $restaurant_id);
-            })           
-            ->groupBy(DB::raw('MONTH(`created_at`)'))
-            ->orderBy(DB::raw('MONTH(`created_at`)'))
+            })
+            ->whereRaw('MONTH(`created_at`) = ?', [date('n')])
+            ->groupBy(DB::raw('WEEK(`created_at`)'))
+            ->orderBy(DB::raw('WEEK(`created_at`)'))
             ->get()
-            ->pluck('earnings', 'current_month')
-            ->toArray();;
+            ->pluck('current_earnings', 'current_week')
+            ->toArray();
 
-            
-        $orders_month = array_map(function ($current_month) use ($orders_current_month) {
-            return [
-                'current_month' => date('M', mktime(0, 0, 0, $current_month, 10)),
-                'current_earnings' => $orders_current_month[$current_month] ?? 0,
+        $orders_month = [];
+        $weeks = 7;
+        for ($i = 1; $i <= $weeks; $i++) {
+            $orders_month[] = [
+                'current_week' => $i,
+                'current_earnings' => $orders_current_month[$i] ?? 0,
             ];
-        }, $current_month);
+        }
 
-        // $orders = array_map(function ($month) use ($orders_data) {
-        //     return [
-        //         'months' => $month,
-        //         'orders' => $orders_data[$month] ?? 0,
-        //     ];
-        // }, $months);
 
-        // return response()->json($orders_month);
 
-        // $dishes = Dish::where('restaurant_id', $restaurant_id)->pluck('id')->toArray();
-        // $orders = Order::whereHas('dishes', function ($query) use ($restaurant_id) {
-        //     $query->where('restaurant_id', $restaurant_id);
-        // })->orderByDesc('created_at')->get();
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
 
-        return view("admin.orders.stats", compact("orders_earnings", "restaurant", "orders_month"));
+        // Array per contenere i dati per il grafico
+        $dishes_orders = [];
+
+        // Per ogni piatto, ottenere la quantità ordinata
+        foreach ($dishes as $dish) {
+            $quantityOrdered = $dish->orders()->sum('quantity');
+
+            // Costruisci un array associativo con il nome del piatto e la quantità ordinata
+            $dishes_orders[] = [
+                'dish_name' => $dish->name,
+                'quantity_ordered' => $quantityOrdered
+            ];
+        }
+        return view("admin.orders.stats")
+            ->with('orders_earnings', $orders_earnings)
+            ->with('restaurant', $restaurant)
+            ->with('orders_month', $orders_month)
+            ->with('dishes_orders', $dishes_orders);
     }
 }
