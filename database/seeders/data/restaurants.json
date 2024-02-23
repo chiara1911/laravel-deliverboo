@@ -2,7 +2,7 @@
     {
         "name": "Pizzeria da Mario",
         "address": "Via del Corso, 145, 00186 Roma RM",
-        "vat": "01234567890",
+        "vat": "06236567890",
         "types": [
             1,
             9,
@@ -11,41 +11,89 @@
         "user_id": 1
     },
     {
+        "name": "La Pizzaiola Felice",
+        "address": "Via Ostiense, 78, 00154 Roma RM",
+        "vat": "01236567890",
+        "types": [
+            1,
+            9,
+            16
+        ],
+        "user_id": 2
+    },
+    {
         "name": "Poke Paradise",
         "address": "Via del Corso, 123, 00186 Roma RM",
         "vat": "90130239630",
         "types": [
             2
         ],
-        "user_id": 2
-    },
-    {
-        "name": "Kebab Corner",
-        "address": "Via del Babuino, 78, 00187 Roma RM",
-        "vat": "90123456789",
-        "types": [
-            3
-        ],
         "user_id": 3
     },
     {
-        "name": "Scandal Burger",
-        "address": "Via del Corso, 89, 00186 Roma RM",
-        "vat": "74789345102",
+        "name": "Poke Bowl House",
+        "address": "Via Veneto, 45, 00187 Roma RM",
+        "vat": "90630239630",
         "types": [
-            4,
-            5
+            2
         ],
         "user_id": 4
     },
     {
+        "name": "Kebab Corner",
+        "address": "Via del Babuino, 78, 00187 Roma RM",
+        "vat": "90123456689",
+        "types": [
+            3
+        ],
+        "user_id": 5
+    },
+    {
+        "name": "Eko Kebab",
+        "address": "Via del Corso, 123, 00186 Roma RM",
+        "vat": "60123456789",
+        "types": [
+            3
+        ],
+        "user_id": 6
+    },
+    {
+        "name": "Scandal Burger",
+        "address": "Via del Corso, 89, 00186 Roma RM",
+        "vat": "74764565102",
+        "types": [
+            4,
+            5
+        ],
+        "user_id": 7
+    },
+    {
+        "name": "Il Club del Burger",
+        "address": "Via Veneto, 45, 00187 Roma RM",
+        "vat": "74769345102",
+        "types": [
+            4,
+            5
+        ],
+        "user_id": 8
+    },
+    {
         "name": "Roll 'n Roll",
         "address": "Via Cassia, 37, 00179 Roma RM",
-        "vat": "01234567892",
+        "vat": "01264567892",
         "types": [
             5
         ],
-        "user_id": 5
+        "user_id": 9
+    },
+    {
+        "name": "Pane e Salame",
+        "address": "Via Nazionale, 12, 00179 Roma RM",
+        "vat": "01234667892",
+        "types": [
+            5
+        ],
+        "user_id": 10
     },
     {
         "name": "La Svolta Messicana",
@@ -54,7 +102,16 @@
         "types": [
             6
         ],
-        "user_id": 6
+        "user_id": 11
+    },
+    {
+        "name": "La Cucaracha",
+        "address": "Via del Corso, 123, 00186 Roma RM",
+        "vat": "13865527005",
+        "types": [
+            6
+        ],
+        "user_id": 12
     },
     {
         "name": "Ramen House",
@@ -64,7 +121,17 @@
             7,
             15
         ],
-        "user_id": 7
+        "user_id": 13
+    },
+    {
+        "name": "Sushiya",
+        "address": "Via Roma 1, 00179 Roma RM",
+        "vat": "0119556789",
+        "types": [
+            7,
+            15
+        ],
+        "user_id": 14
     },
     {
         "name": "Ristorante Xin",
@@ -74,7 +141,17 @@
             8,
             15
         ],
-        "user_id": 8
+        "user_id": 15
+    },
+    {
+        "name": "Golden Dragon",
+        "address": "Via della Conciliazione, 123, 00186 Roma RM",
+        "vat": "77884835112",
+        "types": [
+            8,
+            15
+        ],
+        "user_id": 16
     },
     {
         "name": "Il Ferro e il Fuoco",
@@ -84,7 +161,17 @@
             4,
             9
         ],
-        "user_id": 9
+        "user_id": 17
+    },
+    {
+        "name": "Mattarello Piazza Bologna",
+        "address": "Via Bari 9-11, 00161 Roma RM",
+        "vat": "48327629041",
+        "types": [
+            4,
+            9
+        ],
+        "user_id": 18
     },
     {
         "name": "Delhi Darbar",
@@ -94,7 +181,17 @@
             10,
             15
         ],
-        "user_id": 10
+        "user_id": 19
+    },
+    {
+        "name": "Taj Mahal",
+        "address": "Via del Corso, 145, 00186 Roma RM",
+        "vat": "6651765422",
+        "types": [
+            10,
+            15
+        ],
+        "user_id": 20
     },
     {
         "name": "La Plaza",
@@ -104,7 +201,17 @@
             11,
             16
         ],
-        "user_id": 11
+        "user_id": 21
+    },
+    {
+        "name": "Ristorante Cochera",
+        "address": "Via del Corso, 123, 00186 Roma RM",
+        "vat": "01234748596",
+        "types": [
+            11,
+            16
+        ],
+        "user_id": 22
     },
     {
         "name": "Lotus Thai",
@@ -114,7 +221,17 @@
             12,
             15
         ],
-        "user_id": 12
+        "user_id": 23
+    },
+    {
+        "name": "Thai Garden",
+        "address": "Via del Corso, 145, 00186 Roma RM",
+        "vat": "6482563372",
+        "types": [
+            12,
+            15
+        ],
+        "user_id": 24
     },
     {
         "name": "Olympia Taverna",
@@ -124,6 +241,17 @@
             13,
             16
         ],
-        "user_id": 13
+        "user_id": 25
+    },
+    {
+        "name": "Taverna Ouzeri",
+        "address": "Via del Corso, 123, 00186 Roma RM",
+        "vat": "01232356891",
+        "types": [
+            13,
+            16
+        ],
+        "user_id":26
     }
-]
+  ]
+ 

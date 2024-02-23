@@ -31,7 +31,8 @@
             type: 'line',
             data: {
                 labels: data.map(row => row.months),
-                datasets: [{
+                datasets: [{ 
+
                     data: data.map(row => row.earnings),
                     label: 'Guadagni al mese',
                     borderColor: 'rgba(255, 99, 132, 0.5)',

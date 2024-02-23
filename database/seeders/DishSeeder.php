@@ -25,7 +25,7 @@ class DishSeeder extends Seeder
                 $newDish->name = $dish['name'];
                 $newDish->ingredients = $dish['ingredients'];
                 $newDish->price = $dish['price'];
-                $newDish->description = $dish['description'];
+                // $newDish->description = $dish['description'];
                 $newDish->restaurant_id = $dish['restaurant_id'][$i];
                 $newDish->image = 'dishes/' . Str::slug($dish['name'], '-') . '.jpg';
                 $newDish->save();

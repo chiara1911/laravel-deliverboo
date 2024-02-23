@@ -1,146 +1,699 @@
 
-[
+  [
+  
     {
       "name": "Margherita",
       "ingredients": "mozzarella, pomodoro, basilico",
-      "price": 8.50,
-      "description": "",
+      "price": 8.5,
       "restaurant_id": [1, 2]
     },
     {
       "name": "Quattro Stagioni",
       "ingredients": "mozzarella, funghi, prosciutto cotto, carciofi, olive",
-      "price": 10.50,
-      "description": "",
-      "restaurant_id": [1]
+      "price": 10.5,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Diavola",
+      "ingredients": "mozzarella, salsiccia piccante, peperoncino",
+      "price": 9.0,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Capricciosa",
+      "ingredients": "mozzarella, prosciutto cotto, funghi, carciofi, olive",
+      "price": 11.0,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Quattro Formaggi",
+      "ingredients": "mozzarella, gorgonzola, fontina, parmigiano",
+      "price": 10.0,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Prosciutto e Funghi",
+      "ingredients": "mozzarella, prosciutto cotto, funghi",
+      "price": 9.5,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Tonno e Cipolla",
+      "ingredients": "mozzarella, tonno, cipolla",
+      "price": 9.0,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Quattro Stagioni Bianca",
+      "ingredients": "mozzarella, funghi, prosciutto cotto, carciofi, olive",
+      "price": 11.5,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Vegetariana",
+      "ingredients": "mozzarella, verdure miste, olive",
+      "price": 9.5,
+      "restaurant_id": [1, 2]
+    },
+    {
+      "name": "Calzone",
+      "ingredients": "mozzarella, prosciutto cotto, funghi, salsa di pomodoro",
+      "price": 10.0,
+      "restaurant_id": [1, 2]
+    },
+ 
+    {
+      "name": "Poke Classico",
+      "price": 9.99,
+      "ingredients": "Tonno, Riso, Avocado, Cetriolo, Alga Nori, Salsa di soia ,Sesamo",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke Hawaiano",
+      "price": 10.99,
+      "ingredients": "Salmone, Mango, Edamame, Ananas, Cipolla rossa, Salsa teriyaki, Sesamo",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke Vegano",
+      "price": 8.99,
+      "ingredients": "Tofu, Riso integrale, Cavolo rosso, Carote, Mais, Salsa di arachidi, Coriandolo",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke di Gamberi",
+      "price": 11.99,
+      "ingredients": "Gamberi, Riso, Mango, Cetriolo, Peperone, Salsa Sriracha, Caviale",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke di Pollo",
+      "price": 9.49,
+      "ingredients": "Pollo, Riso ,Ananas, Cipolla rossa, Peperoni, Salsa di soia, Sesamo",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke di Salmone",
+      "price": 10.99,
+      "ingredients": "Salmone, Riso ,Edamame, Avocado, Cetriolo, Salsa ponzu, Germogli di soia",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke alla Griglia",
+      "price": 11.49,
+      "ingredients": "Tonno alla griglia, Riso, Avocado, Cetriolo, Peperoni, Salsa di sesamo, Caviale",
+      "restaurant_id": [3, 4]
+    },
+    {
+      "name": "Poke di Manzo",
+      "price": 11.99,
+      "ingredients": "Manzo marinato, Riso, Ananas, Peperoni, Cipolla rossa, Salsa piccante, Sesamo",
+      "restaurant_id": [3, 4]
     },
     {
       "name": "Poke di Tempura",
       "price": 10.49,
       "ingredients": "Tempura di gamberi, Riso, Mango, Cetriolo, Peperoni, Salsa agrodolce, Caviale",
-      "description": "",
-      "restaurant_id": [2]
+      "restaurant_id": [3, 4]
     },
     {
       "name": "Poke di Granchio",
       "price": 12.49,
       "ingredients": "Granchio, Riso, Avocado, Edamame, Mais, Salsa al lime, Sesamo",
-      "description": "",
-      "restaurant_id": [2]
+      "restaurant_id": [3, 4]
+    },
+  
+    {
+      "name": "Kebab Classico",
+      "ingredients": "carne di pollo, insalata, pomodoro, cipolla, salsa yogurt, pane pita",
+      "price": 6.5,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab al Forno",
+      "ingredients": "carne di agnello, peperoni, cipolla, salsa barbecue, pane pita",
+      "price": 7.5,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab Vegetariano",
+      "ingredients": "falafel, insalata, pomodoro, cipolla, salsa tahini, pane pita",
+      "price": 6.0,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab Piccante",
+      "ingredients": "carne di manzo, peperoncini, cipolla, insalata, salsa piccante, pane pita",
+      "price": 7.0,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab di Tacchino",
+      "ingredients": "carne di tacchino, insalata, pomodoro, cipolla, salsa yogurt, pane pita",
+      "price": 6.5,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab Misto",
+      "ingredients": "carne di pollo, carne di agnello, insalata, pomodoro, cipolla, salsa yogurt, pane pita",
+      "price": 8.5,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab Gourmet",
+      "ingredients": "filetto di manzo, formaggio fuso, insalata, pomodoro, cipolla, salsa specialitÃ , pane pita",
+      "price": 9.0,
+      "restaurant_id": [5, 6]
+    },
+    {
+      "name": "Kebab di Pesce",
+      "ingredients": "filetto di pesce, insalata, pomodoro, cipolla, salsa tartara, pane pita",
+      "price": 8.0,
+      "restaurant_id": [5, 6]
     },
     {
       "name": "Kebab con Falafel",
       "ingredients": "falafel, insalata, pomodoro, cipolla, salsa tahini, pane pita",
-      "price": 7.00,
-      "description": "",
-      "restaurant_id": [3]
+      "price": 7.0,
+      "restaurant_id": [5, 6]
     },
     {
       "name": "Kebab Speciale",
       "ingredients": "carne di manzo, carne di pollo, insalata, pomodoro, cipolla, salsa yogurt, pane pita",
-      "price": 8.00,
-      "description": "",
-      "restaurant_id": [3]
+      "price": 8.0,
+      "restaurant_id": [5, 6]
+    },
+  
+    {
+      "name": "Hamburger Classico",
+      "price": 8.99,
+      "ingredients": "Pane, Hamburger di manzo, Lattuga, Pomodoro, Formaggio cheddar, Ketchup, Maionese",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Hamburger BBQ",
+      "price": 9.49,
+      "ingredients": "Pane, Hamburger di manzo, Cipolla caramellata, Formaggio fuso, Bacon, Salsa BBQ, Maionese",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Hamburger Vegano",
+      "price": 7.99,
+      "ingredients": "Pane integrale, Burger vegano, Lattuga, Pomodoro, Cetrioli, Avocado, Salsa vegana",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Hamburger Piccante",
+      "price": 9.99,
+      "ingredients": "Pane ai semi di sesamo, Hamburger di pollo piccante, Lattuga, Pomodoro, Peperoncini jalapeño, Formaggio pepper jack, Salsa ai peperoni",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Bacon Cheeseburger",
+      "price": 10.49,
+      "ingredients": "Pane, Hamburger di manzo, Insalata ,Formaggio cheddar, Bacon, Maionese",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Pulled Pork",
+      "price": 10.99,
+      "ingredients": "Pane, Spalla di maiale cotta a bassa temperatura, Bacon, Insalata, Salsa BBQ",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Hamburger bimbi",
+      "price": 6.5,
+      "ingredients": "Panino ai semi di sesamo, Hamburger di manzo, Maionese, Ketchup",
+      "restaurant_id": [7, 8]
+    },
+    {
+      "name": "Chicken Burger",
+      "price": 10.5,
+      "ingredients": "Pane, Pollo fritto, Insalata, Maionese",
+      "restaurant_id": [7, 8]
     },
     {
       "name": "Smash Burger",
       "price": 9.99,
       "ingredients": "Pane, Smash burger, Lattuga, Pomodoro, Cipolla caramellata, Formaggio cheddar, Salsa BBQ",
-      "description": "",
-      "restaurant_id": [4]
+      "restaurant_id": [7, 8]
     },
     {
       "name": "Jalapeno Burger",
       "price": 10.49,
       "ingredients": "Brioche, Hamburger di manzo, Lattuga, Pomodoro, Formaggio cheddar, Peperoncini jalapeño, Bacon, Maionese piccante",
-      "description": "",
-      "restaurant_id": [4]
+      "restaurant_id": [7, 8]
+    },
+  
+    {
+      "name": "Panino Classico",
+      "price": 6.0,
+      "visible": true,
+      "description": "Il panino classico con prosciutto, mozzarella e pomodoro fresco.",
+      "ingredients": "prosciutto, mozzarella, pomodoro",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino Vegetariano",
+      "price": 5.0,
+      "visible": true,
+      "description": "Il panino vegetariano con verdure grigliate e hummus.",
+      "ingredients": "verdure grigliate, hummus",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino al Tonno",
+      "price": 6.5,
+      "visible": true,
+      "description": "Il panino al tonno con tonno in scatola, maionese e lattuga.",
+      "ingredients": "tonno in scatola, maionese, lattuga",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino al Pollo",
+      "price": 7.0,
+      "visible": true,
+      "description": "Il panino al pollo con petto di pollo grigliato, formaggio e insalata.",
+      "ingredients": "petto di pollo grigliato, formaggio, insalata",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino al Salame",
+      "price": 5.5,
+      "visible": true,
+      "description": "Il panino al salame con salame piccante, formaggio e rucola.",
+      "ingredients": "salame piccante, formaggio, rucola",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino al Formaggio",
+      "price": 5.0,
+      "visible": true,
+      "description": "Il panino al formaggio con tre tipi di formaggio e pomodoro.",
+      "ingredients": "formaggio, pomodoro",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino al Prosciutto Crudo",
+      "price": 6.5,
+      "visible": true,
+      "description": "Il panino al prosciutto crudo con prosciutto crudo, burrata e rucola.",
+      "ingredients": "prosciutto crudo, burrata, rucola",
+      "restaurant_id": [9, 10]
+    },
+    {
+      "name": "Panino al Tacchino",
+      "price": 7.0,
+      "visible": true,
+      "description": "Il panino al tacchino con tacchino affumicato, formaggio e insalata.",
+      "ingredients": "tacchino affumicato, formaggio, insalata",
+      "restaurant_id": [9, 10]
     },
     {
       "name": "Panino Caprese",
-      "price": 6.00,
+      "price": 6.0,
       "visible": true,
       "description": "Il panino caprese con mozzarella di bufala, pomodoro e basilico.",
       "ingredients": "mozzarella di bufala, pomodoro, basilico",
-      "restaurant_id": [5]
+      "restaurant_id": [9, 10]
     },
     {
       "name": "Panino con Verdure Grigliate",
-      "price": 5.50,
+      "price": 5.5,
       "visible": true,
       "description": "Il panino con verdure grigliate, hummus e rucola fresca.",
       "ingredients": "verdure grigliate, hummus, rucola",
-      "restaurant_id": [5]
+      "restaurant_id": [9, 10]
+    },
+  
+    {
+      "name": "Taco al Pastor",
+      "ingredients": "carne di maiale marinata, ananas, cipolla, coriandolo, tortilla di mais",
+      "price": 3.5,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Quesadilla",
+      "ingredients": "tortilla di farina, formaggio, pollo, peperoni, cipolla",
+      "price": 6.0,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Burrito",
+      "ingredients": "tortilla di farina, riso, fagioli neri, carne di manzo, salsa, formaggio",
+      "price": 8.0,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Enchiladas",
+      "ingredients": "tortilla di mais, pollo, salsa rossa, formaggio, cipolla, peperoni",
+      "price": 7.5,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Nachos",
+      "ingredients": "tortilla chips, formaggio fuso, carne macinata, salsa di pomodoro, peperoncini",
+      "price": 5.5,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Torta al Pastor",
+      "ingredients": "panino, carne di maiale marinata, ananas, cipolla, coriandolo",
+      "price": 7.0,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Chiles Rellenos",
+      "ingredients": "peperoni, formaggio, salsa di pomodoro, carne macinata",
+      "price": 9.0,
+      "restaurant_id": [11, 12]
+    },
+    {
+      "name": "Tamale",
+      "ingredients": "mais, carne di maiale, salsa verde, peperoncini, cipolla",
+      "price": 4.5,
+      "restaurant_id": [11, 12]
     },
     {
       "name": "Guacamole",
       "ingredients": "avocado, cipolla, pomodoro, coriandolo, limone",
-      "price": 6.50,
-      "description": "",
-      "restaurant_id": [6]
+      "price": 6.5,
+      "restaurant_id": [11, 12]
     },
     {
       "name": "Fajitas",
       "ingredients": "carne di pollo o manzo, peperoni, cipolla, tortilla di farina",
-      "price": 10.00,
-      "description": "",
-      "restaurant_id": [6]
+      "price": 10.0,
+      "restaurant_id": [11, 12]
+    },
+
+    {
+      "name": "Sushi assortito",
+      "ingredients": "riso, pesce crudo assortito, alga nori, aceto di riso",
+      "price": 18.0,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Ramen",
+      "ingredients": "brodo di carne o pesce, noodles, carne di maiale o pollo, uovo, alga nori, verdure",
+      "price": 12.5,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Tempura",
+      "ingredients": "verdure miste o gamberi, farina, uova, acqua ghiacciata, salsa tempura",
+      "price": 14.0,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Donburi",
+      "ingredients": "riso, carne o pesce marinato, verdure, uovo, salsa teriyaki",
+      "price": 13.0,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Gyoza",
+      "ingredients": "impasto, carne macinata di maiale o manzo, verdure, salsa di soia",
+      "price": 9.5,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Sashimi",
+      "ingredients": "pesce crudo assortito, wasabi, salsa di soia",
+      "price": 20.0,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Yakitori",
+      "ingredients": "pollo, cipolla, salsa teriyaki",
+      "price": 10.0,
+      "restaurant_id": [13, 14]
+    },
+    {
+      "name": "Okonomiyaki",
+      "ingredients": "cavolo, pancake mix, uova, carne o frutti di mare, salsa okonomiyaki",
+      "price": 11.5,
+      "restaurant_id": [13, 14]
     },
     {
       "name": "Tonkatsu",
       "ingredients": "filetto di maiale, panatura, cavolo, salsa tonkatsu",
-      "price": 15.00,
-      "description": "",
-      "restaurant_id": [7]
+      "price": 15.0,
+      "restaurant_id": [13, 14]
     },
     {
       "name": "Chirashi",
       "ingredients": "riso, pesce crudo assortito, verdure, alga nori",
-      "price": 17.50,
-      "description": "",
-      "restaurant_id": [7]
+      "price": 17.5,
+      "restaurant_id": [13, 14]
+    },
+
+    {
+      "name": "Ma Po Tofu",
+      "ingredients": "Tofu, Maiale macinato, Salsa di fagioli piccante, Peperoncino, Cipolla, Zenzero, Aglio",
+      "price": 10.5,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Anatra alla pechinese",
+      "ingredients": "Anatra, Salsa hoisin, Salsa di soia, Cipolla verde, Foglie di insalata, Panini al vapore",
+      "price": 15.0,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Ravioli al vapore",
+      "ingredients": "Carne di maiale macinata, Cavolo cinese, Zenzero, Aglio, Salsa di soia, Aceto di riso",
+      "price": 8.5,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Gamberetti alla crema di uova",
+      "ingredients": "Gamberetti, Uova, Salsa di soia, Salsa di pesce, Amido di mais, Brodo di pollo",
+      "price": 12.0,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Zuppa agrodolce",
+      "ingredients": "Pollo, Ananas, Peperoni, Cipolle, Aceto di riso, Zucchero, Ketchup",
+      "price": 9.0,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Pollo Kung Pao",
+      "ingredients": "Pollo, Arachidi, Peperoncino, Salsa di soia, Salsa di hoisin, Aceto di riso",
+      "price": 11.0,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Riso fritto al pollo",
+      "ingredients": "Pollo, Riso, Uova, Cipolle, Piselli, Carote, Salsa di soia",
+      "price": 10.0,
+      "restaurant_id": [15, 16]
+    },
+    {
+      "name": "Manzo con broccoli",
+      "ingredients": "Manzo, Broccoli, Salsa di soia, Salsa di ostriche, Zenzero, Aglio, Amido di mais",
+      "price": 12.5,
+      "restaurant_id": [15, 16]
     },
     {
       "name": "Gamberi saltati al pepe nero",
       "ingredients": "Gamberi, Pepe nero, Aglio, Burro, Salsa di soia, Sake",
-      "price": 13.00,
-      "description": "",
-      "restaurant_id": [8]
+      "price": 13.0,
+      "restaurant_id": [15, 16]
     },
     {
       "name": "Tang Cu Pai Gu",
       "ingredients": "Costine di maiale, Zenzero, Aglio, Aceto di riso, Zucchero, Salsa di soia",
-      "price": 14.00,
-      "description": "",
-      "restaurant_id": [8]
+      "price": 14.0,
+      "restaurant_id": [15, 16]
+    },
+
+    {
+      "name": "Spaghetti alla Carbonara",
+      "ingredients": "spaghetti, guanciale, uova, pecorino romano, pepe nero",
+      "price": 12.0,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Pizza Margherita",
+      "ingredients": "pomodoro, mozzarella, basilico, olio d'oliva, sale",
+      "price": 10.0,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Risotto ai Funghi Porcini",
+      "ingredients": "riso Arborio, funghi porcini, cipolla, brodo vegetale, parmigiano reggiano",
+      "price": 14.5,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Lasagne alla Bolognese",
+      "ingredients": "pasta per lasagne, ragù alla bolognese, besciamella, parmigiano reggiano",
+      "price": 15.0,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Ravioli al Burro e Salvia",
+      "ingredients": "ravioli, burro, salvia, parmigiano reggiano",
+      "price": 13.0,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Ossobuco alla Milanese",
+      "ingredients": "fetta di vitello, osso colato, vino bianco, cipolla, sedano, carota, pomodoro",
+      "price": 18.0,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Carpaccio di Manzo",
+      "ingredients": "fettine di manzo, rucola, scaglie di parmigiano, olio d'oliva, succo di limone",
+      "price": 11.5,
+      "restaurant_id": [17, 18]
+    },
+    {
+      "name": "Gnocchi alla Sorrentina",
+      "ingredients": "gnocchi di patate, pomodoro, mozzarella, basilico, olio d'oliva",
+      "price": 12.5,
+      "restaurant_id": [17, 18]
     },
     {
       "name": "Tagliatelle al Ragu",
       "ingredients": "tagliatelle, ragù alla bolognese, parmigiano reggiano",
-      "price": 13.50,
-      "description": "",
-      "restaurant_id": [9]
+      "price": 13.5,
+      "restaurant_id": [17, 18]
     },
     {
       "name": "Saltimbocca alla Romana",
       "ingredients": "fettine di vitello, prosciutto crudo, salvia, vino bianco, burro",
-      "price": 16.00,
-      "description": "",
-      "restaurant_id": [9]
+      "price": 16.0,
+      "restaurant_id": [17, 18]
+    },
+
+    {
+      "name": "Pollo Tikka Masala",
+      "ingredients": "pollo, yogurt, salsa di pomodoro, paprika, garam masala, coriandolo, cipolla",
+      "price": 14.0,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Paneer Tikka",
+      "ingredients": "paneer, yogurt, spezie tandoori, pomodoro, cipolla, peperone",
+      "price": 12.5,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Biryani di Agnello",
+      "ingredients": "agnello, riso basmati, spezie biryani, cipolla, pomodoro, zenzero",
+      "price": 16.0,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Butter Chicken",
+      "ingredients": "pollo, burro, pomodoro, pasta di mandorle, spezie garam masala",
+      "price": 13.5,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Dal Makhani",
+      "ingredients": "lenticchie nere, fagioli rossi, pomodoro, cipolla, burro, crema",
+      "price": 11.0,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Aloo Gobi",
+      "ingredients": "patate, cavolfiore, cipolla, pomodoro, zenzero, curry",
+      "price": 10.5,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Chana Masala",
+      "ingredients": "ceci, cipolla, pomodoro, zenzero, aglio, spezie garam masala",
+      "price": 10.0,
+      "restaurant_id": [19, 20]
+    },
+    {
+      "name": "Saag Paneer",
+      "ingredients": "paneer, spinaci, pomodoro, cipolla, spezie garam masala",
+      "price": 12.0,
+      "restaurant_id": [19, 20]
     },
     {
       "name": "Vindaloo di Agnello",
       "ingredients": "agnello, patate, pomodoro, aceto di mele, peperoncino, spezie vindaloo",
-      "price": 15.00,
-      "description": "",
-      "restaurant_id": [10]
+      "price": 15.0,
+      "restaurant_id": [19, 20]
     },
     {
       "name": "Rogan Josh",
       "ingredients": "agnello, pomodoro, cipolla, zenzero, aglio, spezie garam masala",
-      "price": 14.00,
-      "description": "",
-      "restaurant_id": [10]
+      "price": 14.0,
+      "restaurant_id": [19, 20]
+    },
+
+    {
+      "name": "Paella Valenciana",
+      "price": 12,
+      "visible": true,
+      "description": "La tradizionale paella valenciana preparata con riso, pollo, coniglio, fagioli verdi e condimenti.",
+      "ingredients": "riso, pollo, coniglio, fagioli verdi",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Tortilla Española",
+      "price": 8,
+      "visible": true,
+      "description": "La classica tortilla spagnola fatta con uova, patate, cipolle e olio d'oliva.",
+      "ingredients": "uova, patate, cipolle, olio d'oliva",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Gazpacho",
+      "price": 6,
+      "visible": true,
+      "description": "La fresca zuppa gazpacho, fatta con pomodori, peperoni, cetrioli, cipolle, aglio e aceto di sherry.",
+      "ingredients": "pomodori, peperoni, cetrioli, cipolle, aglio, aceto di sherry",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Pulpo a la Gallega",
+      "price": 14,
+      "visible": true,
+      "description": "Polpo alla galiziana cotto e servito con olio d'oliva, paprica e sale grosso.",
+      "ingredients": "polpo, olio d'oliva, paprica, sale grosso",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Patatas Bravas",
+      "price": 7,
+      "visible": true,
+      "description": "Patate tagliate a cubetti, fritte e servite con una salsa di pomodoro piccante.",
+      "ingredients": "patate, salsa di pomodoro piccante",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Jamón Ibérico",
+      "price": 16,
+      "visible": true,
+      "description": "Prosciutto iberico, un prelibato prosciutto spagnolo affettato sottile.",
+      "ingredients": "prosciutto iberico",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Croquetas de Jamón",
+      "price": 9,
+      "visible": true,
+      "description": "Crocchette di patate e prosciutto fritte e servite con una salsa cremosa.",
+      "ingredients": "patate, prosciutto, salsa cremosa",
+      "restaurant_id": [21, 22]
+    },
+    {
+      "name": "Churros con Cioccolato",
+      "price": 6,
+      "visible": true,
+      "description": "Churros fritti serviti con una densa cioccolata calda per immergerli.",
+      "ingredients": "farina, zucchero, cioccolato",
+      "restaurant_id": [21, 22]
     },
     {
       "name": "Salmorejo",
@@ -148,7 +701,7 @@
       "visible": true,
       "description": "Zuppa spagnola simile al gazpacho, servita fredda con uova sode e prosciutto tritato come guarnizione.",
       "ingredients": "pomodori, pane, aglio, olio d'oliva, uova sode, prosciutto",
-      "restaurant_id": [11]
+      "restaurant_id": [21, 22]
     },
     {
       "name": "Calamares a la Romana",
@@ -156,35 +709,130 @@
       "visible": true,
       "description": "Calamari freschi fritti in pastella, serviti con fettine di limone.",
       "ingredients": "calamari freschi, pastella, limone",
-      "restaurant_id": [11]
+      "restaurant_id": [21, 22]
+    },
+
+    {
+      "name": "Butter Chicken",
+      "ingredients": "pollo, burro, pomodoro, pasta di mandorle, spezie garam masala",
+      "price": 13.5,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Chicken Tikka Masala",
+      "ingredients": "pollo, yogurt, salsa di pomodoro, paprika, garam masala, coriandolo, cipolla",
+      "price": 14.0,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Palak Paneer",
+      "ingredients": "paneer, spinaci, cipolla, pomodoro, spezie garam masala",
+      "price": 12.0,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Chana Masala",
+      "ingredients": "ceci, cipolla, pomodoro, zenzero, aglio, spezie garam masala",
+      "price": 10.0,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Dal Makhani",
+      "ingredients": "lenticchie nere, fagioli rossi, pomodoro, cipolla, burro, crema",
+      "price": 11.0,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Paneer Tikka",
+      "ingredients": "paneer, yogurt, spezie tandoori, pomodoro, cipolla, peperone",
+      "price": 12.5,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Aloo Gobi",
+      "ingredients": "patate, cavolfiore, cipolla, pomodoro, zenzero, curry",
+      "price": 10.5,
+      "restaurant_id": [23, 24]
+    },
+    {
+      "name": "Vindaloo di Agnello",
+      "ingredients": "agnello, patate, pomodoro, aceto di mele, peperoncino, spezie vindaloo",
+      "price": 15.0,
+      "restaurant_id": [23, 24]
     },
     {
       "name": "Biryani di Pollo",
       "ingredients": "pollo, riso basmati, cipolla, pomodoro, spezie biryani",
-      "price": 16.00,
-      "description": "",
-      "restaurant_id": [12]
+      "price": 16.0,
+      "restaurant_id": [23, 24]
     },
     {
       "name": "Rogan Josh",
       "ingredients": "agnello, pomodoro, cipolla, zenzero, aglio, spezie garam masala",
-      "price": 14.00,
-      "description": "",
-      "restaurant_id": [12]
+      "price": 14.0,
+      "restaurant_id": [23, 24]
+    },
+
+    {
+      "name": "Moussaka",
+      "ingredients": "melanzane, carne macinata, patate, cipolla, pomodoro, formaggio grattugiato, bechamel",
+      "price": 14.5,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Souvlaki",
+      "ingredients": "pollo o maiale, cipolla, peperone, pomodoro, tortilla greca, tzatziki",
+      "price": 12.0,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Tzatziki",
+      "ingredients": "yogurt greco, cetriolo, aglio, olio d'oliva, aceto di vino bianco, erbe aromatiche",
+      "price": 8.0,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Dolmades",
+      "ingredients": "foglie di vite, riso, carne macinata, cipolla, limone, olio d'oliva",
+      "price": 10.0,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Spanakopita",
+      "ingredients": "spinaci, feta, cipolla, prezzemolo, uova, sfoglia",
+      "price": 9.5,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Saganaki",
+      "ingredients": "formaggio feta o kefalotiri, farina, uova, limone",
+      "price": 11.0,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Greek Salad",
+      "ingredients": "pomodori, cetrioli, olive nere, cipolla rossa, feta, origano, olio d'oliva",
+      "price": 10.5,
+      "restaurant_id": [25, 26]
+    },
+    {
+      "name": "Taramasalata",
+      "ingredients": "uova di pesce, patate, cipolla, olio d'oliva, limone",
+      "price": 8.5,
+      "restaurant_id": [25, 26]
     },
     {
       "name": "Kleftiko",
       "ingredients": "agnello, patate, cipolla, aglio, pomodoro, vino bianco, spezie",
-      "price": 16.00,
-      "description": "",
-      "restaurant_id": [13]
+      "price": 16.0,
+      "restaurant_id": [25, 26]
     },
     {
       "name": "Baklava",
       "ingredients": "noci, mandorle, pasta fillo, miele, cannella",
-      "price": 7.50,
-      "description": "",
-      "restaurant_id": [13]
+      "price": 7.5,
+      "restaurant_id": [25, 26]
     }
-]
+  
 
+  ]
