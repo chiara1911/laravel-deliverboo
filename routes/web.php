@@ -52,6 +52,6 @@ Route::fallback(function () {
     return redirect()->route('admin.dashboard');
 });
 
-Route::get('/guest', function () {
-    return view('mail.guest-mail');
-});
+// Route::get('/guest', function () {
+//     return view('mail.guest-mail');
+// });

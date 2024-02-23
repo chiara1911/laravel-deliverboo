@@ -253,3 +253,22 @@ nav.navbar{
         filter: brightness(350%);
     }
 }
+
+.yellow-mail-wrapper {
+    transform: rotate(180deg);
+}
+
+.mail-card {
+    background-size: cover;
+    background-position: center;
+}
+
+.card-mail-center {
+    background-size: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h2 {
+        color: $color-secondary;
+    }
+}
