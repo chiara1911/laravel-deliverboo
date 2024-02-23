@@ -3,7 +3,7 @@
         Nuovo Ordine!
     </h2>
     <p>
-       Hai ricevuto un nuovo ordine ricevuto, ecco i dati:
+       Hai ricevuto un nuovo ordine, ecco i dati:
        <ul>
            @foreach ($adminMail->dishes as $dish)
                <li>
