@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Mail\AdminMail;
+use App\Mail\GuestMail;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Order;
 use App\Models\Dish;
@@ -76,7 +77,27 @@ class OrderController extends Controller
             $newOrder->dishes()->attach($dish['dish_id'], ['quantity' => $dish['quantity']]);
         }
 
-        Mail::to('admin@example.com')->send(new AdminMail($newOrder));
+        // Mail::to('admin@example.com')->send(new AdminMail($newOrder));
+        // Mail::to($data['email'])->send(new GuestMail($newOrder));
+
+        $emails = ['admin@example.com', $data['email']];
+
+        foreach ($emails as $email) {
+            if($email === 'admin@example.com') {
+                Mail::to($email)->send(new AdminMail($newOrder));
+            } else {
+                Mail::to($email)->send(new GuestMail($newOrder));
+            }
+        }
+
+        // try {
+        //     Mail::to($email)->send(new GuestMail($newOrder));
+        // } catch (\Exception $e) {
+
+        //     return response()->json([
+        //         'success' => false
+        //     ]);
+        // }
 
         return response()->json([
             'success' => true

@@ -1,7 +1,7 @@
 <div>
-    <h1>
+    <h2>
         Nuovo Ordine!
-    </h1>
+    </h2>
     <p>
        Hai ricevuto un nuovo ordine ricevuto, ecco i dati:
        <ul>
@@ -29,4 +29,7 @@
         </li>
        </ul>
     </p>
+    <div>
+        Deliverboo
+    </div>
 </div>

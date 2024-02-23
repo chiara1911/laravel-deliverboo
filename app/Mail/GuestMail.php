@@ -9,17 +9,17 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class AdminMail extends Mailable
+class GuestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $adminMail;
+    public $guestMail;
     /**
      * Create a new message instance.
      */
-    public function __construct($_adminMail)
+    public function __construct($_guestMail)
     {
-        $this->adminMail = $_adminMail;
+        $this->guestMail = $_guestMail;
     }
 
     /**
@@ -28,8 +28,8 @@ class AdminMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            replyTo: $this->adminMail->email,
-            subject: 'Nuovo Ordine',
+            replyTo: $this->guestMail->email,
+            subject: 'Il tuo Ordine',
         );
     }
 
@@ -39,7 +39,7 @@ class AdminMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.admin-mail',
+            view: 'mail.guest-mail',
         );
     }
 
