@@ -87,26 +87,49 @@ class OrderController extends Controller
         $months = range(1, 12);
         $current_year = Carbon::now()->year;
 
+
         $orders_per_month = Order::select([
             DB::raw('MONTH(`created_at`) as months'),
             DB::raw('COUNT(0) as orders')
-          ])
-          ->whereHas('dishes', function ($query) use ($restaurant_id) {
+        ])
+            ->whereHas('dishes', function ($query) use ($restaurant_id) {
                 $query->where('restaurant_id', $restaurant_id);
             })
-          ->whereYear('created_at', $current_year)
-          ->groupBy(DB::raw('MONTH(`created_at`)'))
-          ->orderBy(DB::raw('MONTH(`created_at`)'))
-          ->get();
+            ->whereYear('created_at', $current_year)
+            ->groupBy(DB::raw('MONTH(`created_at`)'))
+            ->orderBy(DB::raw('MONTH(`created_at`)'))
+            ->get();
 
         $orders_data = $orders_per_month->pluck('orders', 'months')->toArray();
 
-        $orders = array_map(function ($month) use ($orders_data) {
-          return [
-            'months' => $month,
-            'orders' => $orders_data[$month] ?? 0,
-          ];
+        $orders_tot = Order::select([
+            DB::raw('MONTH(`created_at`) as months'),
+            DB::raw('SUM(`total_price`) as earnings')
+        ])
+            ->whereHas('dishes', function ($query) use ($restaurant_id) {
+                $query->where('restaurant_id', $restaurant_id);
+            })
+            ->whereYear('created_at', $current_year)
+            ->groupBy(DB::raw('MONTH(`created_at`)'))
+            ->orderBy(DB::raw('MONTH(`created_at`)'))
+            ->get()
+            ->pluck('earnings', 'months')
+            ->toArray();
+
+
+        $orders_earnings = array_map(function ($months) use ($orders_tot) {
+            return [
+                'months' => date('M', mktime(0, 0, 0, $months, 10)),
+                'earnings' => $orders_tot[$months] ?? 0,
+            ];
         }, $months);
+
+        // $orders = array_map(function ($month) use ($orders_data) {
+        //     return [
+        //         'months' => $month,
+        //         'orders' => $orders_data[$month] ?? 0,
+        //     ];
+        // }, $months);
 
         // return response()->json($orders_month);
 
@@ -115,6 +138,6 @@ class OrderController extends Controller
         //     $query->where('restaurant_id', $restaurant_id);
         // })->orderByDesc('created_at')->get();
 
-        return view("admin.orders.stats", compact("orders", "restaurant"));
+        return view("admin.orders.stats", compact("orders_earnings", "restaurant"));
     }
 }
