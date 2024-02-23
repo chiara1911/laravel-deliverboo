@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\RestaurantController;
 use Illuminate\Support\Facades\Route;
+use App\Mail\GuestMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,8 @@ require __DIR__ . '/auth.php';
 
 Route::fallback(function () {
     return redirect()->route('admin.dashboard');
+});
+
+Route::get('/guest', function () {
+    return view('mail.guest-mail');
 });
