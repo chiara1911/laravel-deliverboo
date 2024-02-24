@@ -7,7 +7,7 @@
 
         </div>
         <div class="card-body p-1">
-            <p class="d-flex justify-content-center align-items-center column-gap-2">
+            <p class="d-flex justify-content-center align-items-center column-gap-2 flex-wrap align-content-center">
                 @foreach ($restaurant->types as $type)
                     <span class="fs-5">{{$type->name}}</span>
                     @if ($loop->last)

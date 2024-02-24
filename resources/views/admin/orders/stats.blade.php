@@ -5,15 +5,15 @@
     <section class="hero-divider bg-color-yellow">
         <div class="container py-5">
             <div class="card border-0 p-2">
-                <h3 class="mb-3 text-center fw-bold">Statistiche ordini</h3>
-                <div class="row">
-                    <div class="col-12 col-lg-6">
+                <h3 class="my-4 text-center fw-bold">Statistiche ordini</h3>
+                <div class="row p-2 justify-content-center">
+                    <div class="col-12 col-lg-6 d-flex justify-content-center">
                         <canvas id="myChart"></canvas>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-6 d-flex justify-content-center">
                         <canvas id="secondChart"></canvas>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="d-none d-lg-flex col-lg-8 justify-content-center">
                         <canvas id="orderChart"></canvas>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             type: 'line',
             data: {
                 labels: data.map(row => row.months),
-                datasets: [{ 
+                datasets: [{
 
                     data: data.map(row => row.earnings),
                     label: 'Guadagni al mese',
@@ -72,7 +72,7 @@
                     y: {
                         title: {
                             display: true,
-                            text: 'Guadagni in euro',
+                            text: 'Guadagni',
                             font: {
                                 size: 16,
                             },
@@ -126,7 +126,7 @@
                     x: {
                         title: {
                             display: true,
-                            text: 'Mesi',
+                            text: 'Giorni Settimana',
                             font: {
                                 size: 16,
                             },
@@ -140,7 +140,7 @@
                     y: {
                         title: {
                             display: true,
-                            text: 'Guadagni in euro',
+                            text: 'Guadagni',
                             font: {
                                 size: 16,
                             },
@@ -170,7 +170,7 @@
                 labels: orderCount.map(row => row.dish_name),
                 datasets: [{
                     data: orderCount.map(row => row.quantity_ordered),
-                    label: 'Numero di ordini',
+                    label: 'Numero di ordini per piatto',
                     borderColor: 'rgba(75, 192, 192, 0.5)',
                     fill: false,
                     backgroundColor: 'rgba(75, 192, 192, 0.5)',
@@ -180,7 +180,7 @@
             options: {
                 plugins: {
                     legend: {
-                        display: false,
+                        display: true,
                         labels: {
                             font: {
                                 size: 16
@@ -206,7 +206,7 @@
                     y: {
                         title: {
                             display: true,
-                            text: 'Numero ordini',
+                            text: 'Ordini',
                             font: {
                                 size: 16,
                             },
