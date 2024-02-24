@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="text-center py-5">
                     <h1 class="fw-bold mb-3">
-                        Ciao <span class="color-tertiary-hover">{{ Auth::user()->name }}</span>, Benvenuto/a in Deliverboo!
+                        Ciao <span class="color-tertiary-hover">{{ Auth::user()->name }}</span>, Benvenuto/a in Deliveboo!
                     </h1>
                     <p class="fs-4">Inizia subito a scoprire tutte le funzionalità a te riservate.</p>
                     @if (Auth::user()->restaurant)
