@@ -6,6 +6,10 @@
         <div class="container py-5">
             <div class="card border-0 p-2">
                 <h3 class="my-4 text-center fw-bold">Statistiche ordini</h3>
+                <p class="text-center">Esplora i trend, le preferenze dei clienti e le prestazioni del menu per ottimizzare
+                    il
+                    servizio,
+                    massimizzare i profitti mensili e soddisfare al meglio i tuoi ospiti.</p>
                 <div class="row p-2 justify-content-center">
                     <div class="col-12 col-lg-6 d-flex justify-content-center">
                         <canvas id="myChart"></canvas>
@@ -26,6 +30,7 @@
     <script>
         const myChart = document.getElementById('myChart');
         const data = @json($orders_earnings);
+        let delayed;
         console.log(data);
         new Chart(myChart, {
             type: 'line',
@@ -52,6 +57,18 @@
                                 size: 16
                             }
                         }
+                    }
+                },
+                animations: {
+                    onComplete: () => {
+                        delayed = true;
+                    },
+                    delay: (context) => {
+                        let delay = 10;
+                        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                            delay = context.dataIndex * 500 + context.datasetIndex * 50;
+                        }
+                        return delay;
                     }
                 },
                 scales: {
@@ -83,6 +100,7 @@
                             color: 'rgb(255, 99, 132)'
                         },
                         ticks: {
+                            padding: 30,
                             callback: function(value, index, ticks) {
                                 return value + '€';
                             }
@@ -126,7 +144,7 @@
                     x: {
                         title: {
                             display: true,
-                            text: 'Giorni Settimana',
+                            text: 'Settimane',
                             font: {
                                 size: 16,
                             },
@@ -135,6 +153,11 @@
                                 bottom: 30
                             },
                             color: 'rgba(54, 162, 235)'
+                        },
+                        ticks: {
+                            callback: function(value, index, ticks) {
+                                return 'week ' + value;
+                            }
                         }
                     },
                     y: {
@@ -201,7 +224,7 @@
                                 bottom: 30
                             },
                             color: 'rgba(75, 192, 192)'
-                        }
+                        },
                     },
                     y: {
                         title: {
@@ -215,6 +238,13 @@
                                 bottom: 30
                             },
                             color: 'rgba(75, 192, 192)'
+                        },
+                        ticks: {
+                            callback: function(value, index, ticks) {
+                                if (Math.floor(value) === value) {
+                                    return value;
+                                }
+                            }
                         }
                     }
                 }
