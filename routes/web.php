@@ -52,6 +52,8 @@ Route::fallback(function () {
     return redirect()->route('admin.dashboard');
 });
 
+// rotta per editare email guest
+
 // Route::get('/guest', function () {
 //     return view('mail.guest-mail');
 // });
