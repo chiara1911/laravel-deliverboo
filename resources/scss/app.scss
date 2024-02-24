@@ -71,15 +71,22 @@ border-radius: 5px;
 
 
 // ****** NAVBAR *******
-#logo {
-    width: 70px;
+.logo-wrapper{
+    #logo {
+        width: 70px;
+    }
+    a{
 
+        color: $color-secondary;
+        text-decoration: none;
+    }
     &:hover {
         transform: scale(1.15);
         transition: all 0.5s;
     }
-
 }
+
+
 .active{
     color: $color-tertiary !important;
 }
