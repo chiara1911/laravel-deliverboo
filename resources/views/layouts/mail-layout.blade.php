@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -9,17 +9,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Mail</title>
-
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 </head>
 
-<body>
-   @yield('mail-content')
-</body>
+<main>
+    @yield('mail-content')
+</main>
+
 </html>
