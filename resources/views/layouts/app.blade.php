@@ -26,9 +26,11 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid px-4 py-2">
 
-                <div class="logo-wrapper me-2">
-                    <a href="http://localhost:5174/">
+                <div class="logo-wrapper me-3">
+                    <a href="http://localhost:5174/" class="d-flex ">
                         <img id="logo" src="{{ Vite::asset('resources/img/deliveboo-logo.png') }}" alt="Deliveboo Logo">
+                        <span class="logo-text d-none d-sm-block fs-2 fw-bold">eliveboo</span>
+
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
