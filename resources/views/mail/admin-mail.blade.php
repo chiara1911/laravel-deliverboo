@@ -106,7 +106,7 @@
                                     {{ $dish->name }} x {{ $dish->pivot->quantity }}
                                 </li>
                             @endforeach
-                            totale: {{ $adminMail->total_price }} €
+                            Totale: {{ $adminMail->total_price }} €
                         </ul>
                     </p>
                     <p>
