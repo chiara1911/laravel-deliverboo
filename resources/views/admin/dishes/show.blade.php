@@ -6,8 +6,8 @@
             <div class="d-flex justify-content-between mb-4">
                 <h1 class="page-title">{{ $dish->name }}</h1>
                 <div class="d-flex align-items-center">
-                    <h6 class="me-3">Modifica il piatto</h6>
-                    <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-edit">
+                    <h6 class="d-none d-md-block">Modifica il piatto</h6>
+                    <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="ms-3 btn btn-edit">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                 </div>

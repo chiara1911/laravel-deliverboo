@@ -105,7 +105,7 @@ class DishController extends Controller
         $formData['restaurant_id'] = $restaurant;
 
         if ($request->hasFile('image')) {
-            if ($dish->image) {
+            if ($dish->image && $dish->image != 'dishes/dish-placeholder.jpg') {
                 Storage::delete($dish->image);
             }
             $name = Str::slug($formData['name'], '-') . '.jpg';
