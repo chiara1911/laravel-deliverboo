@@ -4,7 +4,11 @@
 
         @guest
             <div class="container">
-                <div class="text-center py-5">
+                <div class="text-center py-5 d-flex flex-column align-items-center">
+                    <div class="w-25 mb-3">
+                        <img id="logo" src="{{ Vite::asset('resources/img/logo_food_white.png') }}" alt="Deliveboo Logo">
+                    </div>
+
                     <h1 class="color-secondary fw-bold">
                         Benvenuto in Deliveboo!
                     </h1>
@@ -18,7 +22,10 @@
         @else
             {{-- @include('partials.hero') --}}
             <div class="container">
-                <div class="text-center py-5">
+                <div class="text-center py-5 d-flex flex-column align-items-center">
+                    <div class="w-25 mb-3">
+                        <img id="logo" src="{{ Vite::asset('resources/img/logo_food_white.png') }}" alt="Deliveboo Logo">
+                    </div>
                     <h1 class="fw-bold mb-3">
                         Ciao <span class="color-tertiary-hover">{{ Auth::user()->name }}</span>, Benvenuto/a in Deliveboo!
                     </h1>
